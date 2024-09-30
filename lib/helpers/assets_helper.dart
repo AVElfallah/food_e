@@ -26,4 +26,5 @@ class AssetsHelper {
   static const searchIcon = 'assets/svgs/search.svg';
   static const historyIcon = 'assets/svgs/history.svg';
   static const xIcon = 'assets/svgs/x.svg';
+  static const recycleIcon = 'assets/svgs/recycle.svg';
 }
