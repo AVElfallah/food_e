@@ -13,22 +13,6 @@ class BasketPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      /*  appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              'BASKET',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 36,
-                color: ColorsHelper.light,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-          ),
-        ),
-      ), */
       body: Stack(
         children: [
           //AppBar [START]
