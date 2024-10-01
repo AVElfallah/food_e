@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/profile/pages/account_profile/account_profile_page.dart';
+import 'pages/profile/pages/change_password/change_password_page.dart';
 
 void main() {
   runApp(
@@ -128,7 +129,7 @@ class MyApp extends StatelessWidget {
         primaryColorLight: ColorsHelper.primaryLight,
         useMaterial3: true,
       ),
-      home: const AccountProfilePage(),
+      home:  ChangePasswordPage(),
       //initialRoute: RouterHelper.splashPage,
       onGenerateRoute: RouterHelper.generateRoute,
     );

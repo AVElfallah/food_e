@@ -169,7 +169,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Text(
-                      'FIRST NAME',
+                      'Email',
                       style: GoogleFonts.bebasNeue(
                         fontSize: 12,
                         color: ColorsHelper.primary,
