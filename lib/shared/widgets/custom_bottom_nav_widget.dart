@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 
+// CustomBottomNavigationBar is a custom widget that displays a bottom navigation bar with SVG icons.
 class CustomBottomNavigationBar extends StatefulWidget {
-  final List<String> svgIcons;
-  final Color selectedColor;
-  final Color unselectedColor;
-  final Color? backgroundColor;
-  final bool showElevation;
-  final ValueNotifier<int>? selectedIndex;
+  final List<String> svgIcons; // List of SVG icon paths
+  final Color selectedColor; // Color for the selected icon
+  final Color unselectedColor; // Color for the unselected icons
+  final Color? backgroundColor; // Background color of the navigation bar
+  final bool showElevation; // Whether to show elevation (shadow) or not
+  final ValueNotifier<int>? selectedIndex; // Notifier for the selected index
 
-  final void Function(int)? onChangeSelection;
+  final void Function(int)?
+      onChangeSelection; // Callback when an icon is selected
 
   const CustomBottomNavigationBar({
     super.key,
@@ -30,17 +32,20 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
     with SingleTickerProviderStateMixin {
-  //int _selectedIndex = 0;
+  // Animation controller for the animation
   late AnimationController _controller;
+  // Animation for the selected indicator
   late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
+    // Initialize the animation controller with a duration of 500 milliseconds
     _controller = AnimationController(
       duration: const Duration(milliseconds: 500), // Slower animation
       vsync: this,
     );
+    // Define the animation from 0 to 1
     _animation = Tween<double>(
       begin: 0,
       end: 1,
@@ -51,24 +56,30 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
 
   @override
   void dispose() {
+    // Dispose the animation controller when the widget is disposed
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    // List of SVG icons
     var listOfSvgIcons = widget.svgIcons;
+
+    // Function to handle icon tap
     void onItemTapped(int index) {
-      widget.selectedIndex?.value = index;
-      _controller.forward(from: 0);
+      widget.selectedIndex?.value = index; // Update the selected index
+      _controller.forward(from: 0); // Start the animation
     }
 
     return Hero(
-      tag: 'bottomNAV_TAG',
+      tag: 'bottomNAV_TAG', // Hero tag for animation between screens
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(
+            vertical: 10), // Padding for the container
         decoration: BoxDecoration(
-          color: widget.backgroundColor,
+          color:
+              widget.backgroundColor, // Background color of the navigation bar
           boxShadow: widget.showElevation
               ? const [
                   BoxShadow(
@@ -76,47 +87,55 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                     blurRadius: 10,
                   ),
                 ]
-              : [],
+              : [], // Show shadow if showElevation is true
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment:
+              MainAxisAlignment.spaceAround, // Space icons evenly
           children: [
-            //Summery this is  a for loop that looping in [listOfSvgIcons]
-            //to print the icons on screen
-            // [idx] is the index of loop
+            // Loop through the list of SVG icons to create navigation items
             for (var idx = 0; idx < listOfSvgIcons.length; idx++)
-              //Start internal for [START]
+              // Use ValueListenableBuilder to rebuild the widget when selectedIndex changes
               ValueListenableBuilder<int>(
                   valueListenable: widget.selectedIndex ?? ValueNotifier(-1),
                   builder: (context, val, wid) {
-                    String iconPath = listOfSvgIcons[idx];
-                    bool isSelected = val == idx;
+                    String iconPath =
+                        listOfSvgIcons[idx]; // Path of the current icon
+                    bool isSelected =
+                        val == idx; // Check if the current icon is selected
 
                     return GestureDetector(
                       onTap: () {
-                        onItemTapped(idx);
-                        widget.onChangeSelection?.call(idx);
+                        onItemTapped(idx); // Handle icon tap
+                        widget.onChangeSelection
+                            ?.call(idx); // Call the callback function
                       },
                       child: AnimatedContainer(
                         duration: const Duration(
                           milliseconds: 500,
                         ), // Slower animation
-                        curve: Curves.easeInOut,
+                        curve: Curves.easeInOut, // Animation curve
                         child: Column(
-                          mainAxisSize: MainAxisSize.min,
+                          mainAxisSize:
+                              MainAxisSize.min, // Minimize the main axis size
                           children: [
                             SvgPicture.asset(
                               iconPath,
+                              // ignore: deprecated_member_use
                               color: isSelected
                                   ? widget.selectedColor
-                                  : widget.unselectedColor,
+                                  : widget
+                                      .unselectedColor, // Set icon color based on selection
                               width: 25,
                               height: 25,
-                              fit: BoxFit.fill,
+                              fit: BoxFit
+                                  .fill, // Fit the icon within the given size
                             ),
-                            const SizedBox(height: 5),
+                            const SizedBox(
+                                height: 5), // Space between icon and indicator
                             AnimatedBuilder(
-                              animation: _animation,
+                              animation:
+                                  _animation, // Use the defined animation
                               builder: (context, child) {
                                 return Center(
                                   child: Container(
@@ -124,7 +143,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                                     height: 2,
                                     color: isSelected
                                         ? widget.selectedColor
-                                        : Colors.transparent,
+                                        : Colors
+                                            .transparent, // Show indicator if selected
                                   ),
                                 );
                               },
@@ -134,7 +154,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                       ),
                     );
                   })
-            //End internal for [END]
           ],
         ),
       ),

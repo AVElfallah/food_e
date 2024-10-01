@@ -11,6 +11,8 @@ class AssetsHelper {
   static const bkingImage = 'assets/images/bking.png';
   static const phutImage = 'assets/images/phut.png';
   static const scompanyImage = 'assets/images/scompany.png';
+  static const astroRocket = 'assets/images/astro_rocket.jpg';
+  static const astroCheck = 'assets/images/astro_check.jpg';
 
   //icons
 
