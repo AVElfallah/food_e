@@ -5,6 +5,8 @@ import 'package:food_e/pages/splash/controllers/splash_page_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import 'pages/profile/pages/account_profile/account_profile_page.dart';
+
 void main() {
   runApp(
     MultiProvider(
@@ -126,7 +128,8 @@ class MyApp extends StatelessWidget {
         primaryColorLight: ColorsHelper.primaryLight,
         useMaterial3: true,
       ),
-      initialRoute: RouterHelper.splashPage,
+      home: const AccountProfilePage(),
+      //initialRoute: RouterHelper.splashPage,
       onGenerateRoute: RouterHelper.generateRoute,
     );
   }

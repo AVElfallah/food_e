@@ -34,6 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
           ),
+          // User Name
           Text(
             'Abdulrhman Elfallah',
             style: GoogleFonts.poppins(

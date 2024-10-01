@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // Importing Flutter's material design package
 
-import '../../../helpers/colors_helper.dart';
+import '../../../helpers/colors_helper.dart'; // Importing a custom helper for colors
 
+// Defining a stateless widget named ProfileItemWidget
 class ProfileItemWidget extends StatelessWidget {
+  // Constructor for the widget, accepting key, icon, title, and an optional onTap callback
   const ProfileItemWidget({
     super.key,
     required this.icon,
@@ -10,25 +12,29 @@ class ProfileItemWidget extends StatelessWidget {
     this.onTap,
   });
 
-  final IconData icon;
-  final String title;
-  final void Function()? onTap;
+  // Declaring final fields for the widget's properties
+  final IconData icon; // Icon to be displayed in the list tile
+  final String title; // Title text to be displayed in the list tile
+  final void Function()? onTap; // Optional callback function for tap events
 
   @override
   Widget build(BuildContext context) {
+    // Building the widget tree
     return ListTile(
       leading: Icon(
-        icon,
-        color: ColorsHelper.primary,
+        icon, // Setting the icon
+        color: ColorsHelper.primary, // Using a custom color from ColorsHelper
       ),
       title: Text(
-        title,
-        style: const TextStyle(fontSize: 16, color: Colors.white),
+        title, // Setting the title text
+        style: const TextStyle(
+            fontSize: 16, color: Colors.white), // Styling the text
       ),
-      trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white),
+      trailing: const Icon(Icons.arrow_forward_ios,
+          color: Colors.white), // Adding a trailing arrow icon
       onTap: () {
-        // Define navigation action here
-        onTap?.call();
+        // Defining the action to be taken when the tile is tapped
+        onTap?.call(); // Calling the onTap callback if it's provided
       },
     );
   }
