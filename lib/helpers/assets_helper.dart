@@ -13,6 +13,7 @@ class AssetsHelper {
   static const scompanyImage = 'assets/images/scompany.png';
   static const astroRocket = 'assets/images/astro_rocket.jpg';
   static const astroCheck = 'assets/images/astro_check.jpg';
+  static const profilePic = 'assets/images/profile_pic.jpg';
 
   //icons
 

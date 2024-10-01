@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
+import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/layouts/shared_bottom_nav_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -79,6 +80,8 @@ class BasketPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         //TODO -  add checkout button action
+                        Navigator.of(context)
+                            .pushNamed(RouterHelper.checkoutPage);
                       },
                       child: const Text(
                         'PROCEED TO CHECKOUT',

@@ -50,7 +50,7 @@ class RoleModelAppbarWidget extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     // Check if the current route can be popped (i.e., if there is a previous route).
-    final canPop = !Navigator.of(context).canPop();
+    final canPop = Navigator.of(context).canPop();
     return AppBar(
       centerTitle: centerTitle,
       title: title,
