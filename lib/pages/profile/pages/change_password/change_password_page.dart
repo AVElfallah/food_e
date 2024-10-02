@@ -5,10 +5,18 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../helpers/colors_helper.dart';
 import '../../../../shared/widgets/role_model_appbar_widget.dart';
 
-class ChangePasswordPage extends StatelessWidget {
-  ChangePasswordPage({super.key});
+class ChangePasswordPage extends StatefulWidget {
+  const ChangePasswordPage({super.key});
+
+  @override
+  State<ChangePasswordPage> createState() => _ChangePasswordPageState();
+}
+
+class _ChangePasswordPageState extends State<ChangePasswordPage> {
   final TextEditingController _oldPasswordController = TextEditingController();
+
   final TextEditingController _newPasswordController = TextEditingController();
+
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
@@ -25,7 +33,7 @@ class ChangePasswordPage extends StatelessWidget {
         child: ListView(
           children: [
             Text(
-              'ACCOUNT AND PROFILE',
+              'Change Password',
               style: GoogleFonts.bebasNeue(
                 fontSize: 36,
                 color: Colors.white,

@@ -11,11 +11,18 @@ import 'package:food_e/pages/forget_password_feature/pages/email_sent_page.dart'
 import 'package:food_e/pages/forget_password_feature/pages/reset_password_page.dart';
 import 'package:food_e/pages/home/home_page.dart';
 import 'package:food_e/pages/order/checkout/checkout_page.dart';
+import 'package:food_e/pages/profile/pages/change_password/change_password_page.dart';
 import 'package:food_e/pages/splash/splash_page.dart';
 
 import '../pages/basket/basket_page.dart';
 import '../pages/favorite/favorite_page.dart';
 import '../pages/meal/meal_page.dart';
+import '../pages/profile/pages/account_profile/account_profile_page.dart';
+import '../pages/profile/pages/contact_support/contact_support_page.dart';
+import '../pages/profile/pages/order_history/order_history_page.dart';
+import '../pages/profile/pages/privacy_policy/privacy_policy_page.dart';
+import '../pages/profile/pages/refer_to_a_friend/refer_to_a_friend_page.dart';
+import '../pages/profile/pages/terms_and_conditions/terms_and_conditions_page.dart';
 import '../pages/profile/profile_page.dart';
 import '../pages/search/search_page.dart';
 
@@ -39,7 +46,16 @@ class RouterHelper {
   static const String searchPage = '/home/search/';
   static const basketPage = '/home/basket/';
   static const favoritePage = '/home/favorite/';
+  //
   static const profilePage = '/home/profile/';
+  static const accountProfilePage = '/home/profile/account_profile';
+  static const changePasswordPage = '/home/profile/change_password';
+  static const contactSupportPage = '/home/profile/contact_support';
+  static const orderHistoryPage = '/home/profile/order_history';
+  static const privacyPolicyPage = '/home/profile/privacy_policy';
+  static const termsAndConditionsPage = '/home/profile/terms_and_conditions';
+  static const referToAFriendPage = '/home/profile/refer_to_a_friend';
+  //
   static const checkoutPage = '/home/basket/checkout';
 
   /// This method generates the appropriate route based on the route settings.
@@ -133,6 +149,55 @@ class RouterHelper {
       case searchPage:
         return PageRouteSlidable(
           page: (ctx) => const SearchPage(),
+          settings: settings,
+        );
+
+      // Account profile route
+      case accountProfilePage:
+        return MaterialPageRoute(
+          builder: (ctx) => const AccountProfilePage(),
+          settings: settings,
+        );
+
+      // change password page
+      case changePasswordPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const ChangePasswordPage(),
+          settings: settings,
+        );
+
+      // contact support page
+      case contactSupportPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const ContactSupportPage(),
+          settings: settings,
+        );
+
+      // order history page
+      case orderHistoryPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const OrderHistoryPage(),
+          settings: settings,
+        );
+
+      // privacy policy page
+      case privacyPolicyPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const PrivacyPolicyPage(),
+          settings: settings,
+        );
+
+      // terms and conditions page
+      case termsAndConditionsPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const TermsAndConditionsPage(),
+          settings: settings,
+        );
+
+      // refer to a friend page
+      case referToAFriendPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const ReferToAFriendPage(),
           settings: settings,
         );
 

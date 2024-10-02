@@ -1,0 +1,120 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:food_e/helpers/colors_helper.dart';
+import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class ReferToAFriendPage extends StatefulWidget {
+  const ReferToAFriendPage({super.key});
+
+  @override
+  State<ReferToAFriendPage> createState() => _ReferToAFriendPageState();
+}
+
+class _ReferToAFriendPageState extends State<ReferToAFriendPage> {
+  final TextEditingController _controller = TextEditingController();
+
+  // Method to paste text from the clipboard
+  Future<void> pasteFromClipboard() async {
+    ClipboardData? data = await Clipboard.getData(Clipboard.kTextPlain);
+    if (data != null) {
+      setState(() {
+        _controller.text = data.text!;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    return Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: RoleModelAppbarWidget(
+          context,
+          leadingIcon: Icons.arrow_back_ios_new,
+        ),
+        body: Stack(
+          children: [
+            //Top text [START]
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 18,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'REFER to a Friend',
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 36,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        'REFER CODE',
+                        style: GoogleFonts.bebasNeue(
+                          fontSize: 12,
+                          color: ColorsHelper.primary,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: height * .05,
+                      child: TextField(
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                        controller: _controller,
+                        decoration: InputDecoration(
+                          hintText: 'Q8F4-B6S2-S6B3-N6Z5',
+                          filled: true,
+                          fillColor: Colors.white,
+                          suffixIcon: GestureDetector(
+                            onTap: () async {
+                              await pasteFromClipboard();
+                            },
+                            child: const Icon(
+                              Icons.developer_board,
+                              color: ColorsHelper.primary,
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //Top Text [END]
+
+            //Bottom button [START]
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: height * .1,
+                  horizontal: 18,
+                ),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('SHARE THIS APP'),
+                ),
+              ),
+            )
+            //Bottom button [END]
+          ],
+        ));
+  }
+}

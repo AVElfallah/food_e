@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/helpers/colors_helper.dart';
+import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/layouts/shared_bottom_nav_layout.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -48,24 +49,83 @@ class _ProfilePageState extends State<ProfilePage> {
           // Menu List
           Expanded(
             child: ListView(
-              children: const [
+              children: [
                 ProfileItemWidget(
-                    icon: Icons.edit, title: 'Account and Profile'),
+                  icon: Icons.edit,
+                  title: 'Account and Profile',
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, RouterHelper.accountProfilePage);
+                  },
+                ),
                 ProfileItemWidget(
-                    icon: Icons.payment, title: 'Manage Payment Methods'),
+                  icon: Icons.payment,
+                  title: 'Manage Payment Methods',
+                  onTap: () {
+                    //TODO -  add payment method here
+                  },
+                ),
                 ProfileItemWidget(
-                    icon: Icons.location_on, title: 'Manage Addresses'),
-                ProfileItemWidget(icon: Icons.history, title: 'Order History'),
+                  icon: Icons.location_on,
+                  title: 'Manage Addresses',
+                  onTap: () {
+                    //TODO - add address here
+                  },
+                ),
                 ProfileItemWidget(
-                    icon: Icons.support_agent, title: 'Contact Support'),
+                  icon: Icons.history,
+                  title: 'Order History',
+                  onTap: () {
+                    Navigator.pushNamed(context, RouterHelper.orderHistoryPage);
+                  },
+                ),
                 ProfileItemWidget(
-                    icon: Icons.card_giftcard, title: 'Refer to a Friend'),
-                ProfileItemWidget(icon: Icons.star, title: 'Write a Review'),
+                  icon: Icons.support_agent,
+                  title: 'Contact Support',
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, RouterHelper.contactSupportPage);
+                  },
+                ),
                 ProfileItemWidget(
-                    icon: Icons.description, title: 'Terms and Conditions'),
+                  icon: Icons.card_giftcard,
+                  title: 'Refer to a Friend',
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, RouterHelper.referToAFriendPage);
+                  },
+                ),
                 ProfileItemWidget(
-                    icon: Icons.privacy_tip, title: 'Privacy Policy'),
-                ProfileItemWidget(icon: Icons.logout, title: 'Logout'),
+                  icon: Icons.star,
+                  title: 'Write a Review',
+                  onTap: () {
+                    //TODO - add write a review here
+                  },
+                ),
+                ProfileItemWidget(
+                  icon: Icons.description,
+                  title: 'Terms and Conditions',
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, RouterHelper.termsAndConditionsPage);
+                  },
+                ),
+                ProfileItemWidget(
+                  icon: Icons.privacy_tip,
+                  title: 'Privacy Policy',
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, RouterHelper.privacyPolicyPage);
+                  },
+                ),
+                ProfileItemWidget(
+                  icon: Icons.logout,
+                  title: 'Logout',
+                  onTap: () {
+                    //TODO - don't forget to complite log out
+                    Navigator.pop(context);
+                  },
+                ),
               ],
             ),
           ),

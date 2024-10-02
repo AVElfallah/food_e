@@ -5,9 +5,6 @@ import 'package:food_e/pages/splash/controllers/splash_page_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/profile/pages/account_profile/account_profile_page.dart';
-import 'pages/profile/pages/change_password/change_password_page.dart';
-
 void main() {
   runApp(
     MultiProvider(
@@ -129,8 +126,8 @@ class MyApp extends StatelessWidget {
         primaryColorLight: ColorsHelper.primaryLight,
         useMaterial3: true,
       ),
-      home:  ChangePasswordPage(),
-      //initialRoute: RouterHelper.splashPage,
+      //home:  ChangePasswordPage(),
+      initialRoute: RouterHelper.splashPage,
       onGenerateRoute: RouterHelper.generateRoute,
     );
   }
