@@ -30,6 +30,7 @@ class TermsAndConditionsPartsWidgets extends StatefulWidget {
     );
   }
 
+  @override
   State<TermsAndConditionsPartsWidgets> createState() =>
       _TermsAndConditionsPartsWidgetsState();
 }
@@ -41,7 +42,6 @@ class _TermsAndConditionsPartsWidgetsState
   void initState() {
     super.initState();
     currentIndex = TermsAndConditionsPartsWidgets.counter;
-    print(currentIndex);
   }
 
   @override
@@ -57,7 +57,7 @@ class _TermsAndConditionsPartsWidgetsState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${currentIndex}- ${widget.title}',
+          '$currentIndex- ${widget.title}',
           style: GoogleFonts.bebasNeue(
             fontSize: 24,
             color: Colors.white,

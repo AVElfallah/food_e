@@ -39,7 +39,6 @@ class _PolicyPartsWidgetsState extends State<PolicyPartsWidgets> {
   void initState() {
     super.initState();
     currentIndex = PolicyPartsWidgets.counter;
-    print(currentIndex);
   }
 
   @override
@@ -55,7 +54,7 @@ class _PolicyPartsWidgetsState extends State<PolicyPartsWidgets> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${currentIndex}- ${widget.title}',
+          '$currentIndex- ${widget.title}',
           style: GoogleFonts.bebasNeue(
             fontSize: 24,
             color: Colors.white,

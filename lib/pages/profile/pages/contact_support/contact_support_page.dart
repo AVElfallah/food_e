@@ -58,7 +58,7 @@ class ContactSupportPage extends StatelessWidget {
                         color: ColorsHelper.primary,
                       ),
                       onTap: () {
-                        //TODO - add acction to gmail
+                        //TODO - add action to gmail
                       },
                       title: Text(
                         'support@foode.com',
@@ -74,7 +74,7 @@ class ContactSupportPage extends StatelessWidget {
                         color: ColorsHelper.primary,
                       ),
                       onTap: () {
-                        //TODO - add acction to chat
+                        //TODO - add action to chat
                       },
                       title: Text(
                         'chat on WhatsApp',
