@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart'; // Importing Flutter's material design package
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/model/order_history_model.dart';
-import 'package:google_fonts/google_fonts.dart'; // Importing Google Fonts package
 
 import '../../../../shared/widgets/role_model_appbar_widget.dart'; // Importing a custom app bar widget
 import 'widgets/order_history_item_widget.dart'; // Importing a custom widget for order history items
@@ -33,10 +33,7 @@ class OrderHistoryPage extends StatelessWidget {
             // Displaying the page title
             Text(
               'ORDER HISTORY',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 36, // Font size
-                color: Colors.white, // Text color
-              ),
+              style: context.textTheme.headlineLarge,
             ),
             const SizedBox(
               height: 30, // Adding space below the title

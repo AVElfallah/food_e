@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../../helpers/colors_helper.dart';
 import '../../../../shared/widgets/role_model_appbar_widget.dart';
@@ -34,10 +33,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
           children: [
             Text(
               'Change Password',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 36,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge,
             ),
 
             SizedBox(height: height * .3),
@@ -52,8 +48,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Text(
                       'OLD PASSWORD',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 12,
+                      style: context.textTheme.labelSmall!.copyWith(
                         color: ColorsHelper.primary,
                       ),
                     ),
@@ -62,8 +57,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     height: height * .05,
                     child: TextField(
                       controller: _oldPasswordController,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
+                      style: context.textTheme.bodyMedium!.copyWith(
                         color: Colors.black,
                       ),
                       decoration: InputDecoration(
@@ -90,8 +84,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Text(
                       'NEW PASSWORD',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 12,
+                      style: context.textTheme.labelSmall!.copyWith(
                         color: ColorsHelper.primary,
                       ),
                     ),
@@ -100,8 +93,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     height: height * .05,
                     child: TextField(
                       controller: _newPasswordController,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
+                      style: context.textTheme.bodyMedium!.copyWith(
                         color: Colors.black,
                       ),
                       decoration: InputDecoration(
@@ -128,8 +120,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Text(
                       'CONFIRM PASSWORD',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 12,
+                      style: context.textTheme.labelSmall!.copyWith(
                         color: ColorsHelper.primary,
                       ),
                     ),
@@ -138,8 +129,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     height: height * .05,
                     child: TextField(
                       controller: _confirmPasswordController,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
+                      style: context.textTheme.bodyMedium!.copyWith(
                         color: Colors.black,
                       ),
                       decoration: InputDecoration(

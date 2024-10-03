@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; // Importing Flutter's material design package
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../helpers/colors_helper.dart'; // Importing a custom helper for colors
 
@@ -27,8 +28,7 @@ class ProfileItemWidget extends StatelessWidget {
       ),
       title: Text(
         title, // Setting the title text
-        style: const TextStyle(
-            fontSize: 16, color: Colors.white), // Styling the text
+        style: context.textTheme.bodyMedium, // Styling the text
       ),
       trailing: const Icon(Icons.arrow_forward_ios,
           color: Colors.white), // Adding a trailing arrow icon

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/model/meal_model.dart';
 import 'package:food_e/shared/widgets/custom_bottom_nav_widget.dart';
 import 'package:food_e/shared/widgets/upper_text_label.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MealPage extends StatelessWidget {
   const MealPage({super.key});
@@ -16,8 +16,6 @@ class MealPage extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as MealModel;
     int quantity = 1;
 
-    var canvasWidth = MediaQuery.of(context).size.width;
-    var canvasHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -48,12 +46,12 @@ class MealPage extends StatelessWidget {
               ),
             ),
             //LEADING [END]
-            expandedHeight: canvasHeight * .35,
+            expandedHeight: context.height * .35,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                 mealModel.imageURL!,
-                width: canvasWidth,
-                height: canvasHeight * .25,
+                width: context.width,
+                height: context.height * .25,
                 fit: BoxFit.fill,
               ),
             ),
@@ -76,10 +74,8 @@ class MealPage extends StatelessWidget {
                     children: [
                       Text(
                         'The Nautilus',
-                        style: GoogleFonts.poppins(
+                        style: context.textTheme.bodyMedium?.copyWith(
                           color: ColorsHelper.secondary,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
                         ),
                       ),
                       const Spacer(),
@@ -93,10 +89,8 @@ class MealPage extends StatelessWidget {
                           ),
                           Text(
                             '34 mins',
-                            style: GoogleFonts.poppins(
+                            style: context.textTheme.bodyMedium?.copyWith(
                               color: ColorsHelper.secondary,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
@@ -115,10 +109,8 @@ class MealPage extends StatelessWidget {
                   child: Text(
                     """
 Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos rerum iusto. Beatae totam ab veritatis aliquid tenetur qui ut. Quia ut dolorum enim et. Exercitationem occaecati eum est ex qui harum aliquam.""",
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
+                    style: context.textTheme.bodyMedium?.copyWith(
                       color: ColorsHelper.gray,
-                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
@@ -133,8 +125,8 @@ Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos reru
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: canvasHeight * .05,
-                      width: canvasWidth * .45,
+                      height: context.height * .05,
+                      width: context.width * .45,
                       margin: const EdgeInsets.only(left: 12),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -148,10 +140,8 @@ Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos reru
                           children: [
                             Text(
                               quantity.toString(),
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                              ),
+                              style: context.textTheme.labelMedium
+                                  ?.copyWith(color: Colors.black),
                             ),
                             const Spacer(),
                             IconButton(
@@ -189,8 +179,7 @@ Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos reru
                       padding: const EdgeInsets.only(right: 20),
                       child: Text(
                         '\$ ${mealModel.price?.toStringAsFixed(2)}',
-                        style: GoogleFonts.bebasNeue(
-                          fontSize: 24,
+                        style: context.textTheme.headlineMedium?.copyWith(
                           color: ColorsHelper.primary,
                         ),
                       ),

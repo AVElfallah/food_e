@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/model/order_history_model.dart';
 import 'package:food_e/pages/profile/pages/order_history/widgets/order_history_details_item.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class OrderDetailsLayouts extends StatelessWidget {
@@ -30,18 +30,14 @@ class OrderDetailsLayouts extends StatelessWidget {
           children: [
             Text(
               formattedDate.toString(),
-              style: GoogleFonts.bebasNeue(
-                fontSize: 36,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge,
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
               '\$ ${args.totalPrice}',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 24,
+              style: context.textTheme.headlineMedium!.copyWith(
                 color: ColorsHelper.primary,
               ),
             ),

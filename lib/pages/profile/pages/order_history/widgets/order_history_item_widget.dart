@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/model/order_history_model.dart';
 import 'package:food_e/pages/profile/pages/order_history/layouts/order_details_layouts.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 class OrderHistoryItemWidget extends StatelessWidget {
@@ -30,19 +30,15 @@ class OrderHistoryItemWidget extends StatelessWidget {
             children: [
               Text(
                 formattedDate,
-                style: GoogleFonts.bebasNeue(
+                style: context.textTheme.labelSmall!.copyWith(
                   color: ColorsHelper.secondary,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14,
                 ),
               ),
               //Price [START]
               Text(
                 '\$${model!.totalPrice!}',
-                style: GoogleFonts.bebasNeue(
+                style: context.textTheme.labelSmall!.copyWith(
                   color: ColorsHelper.secondary,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 14,
                 ),
               ),
             ],
@@ -54,9 +50,8 @@ class OrderHistoryItemWidget extends StatelessWidget {
           //Quantity [START]
           Text(
             '${model!.itemsQuantity!} items',
-            style: GoogleFonts.poppins(
+            style: context.textTheme.labelMedium!.copyWith(
               color: ColorsHelper.gray,
-              fontSize: 14,
             ),
           ),
 

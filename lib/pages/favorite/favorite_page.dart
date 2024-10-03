@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../helpers/assets_helper.dart';
-import '../../helpers/colors_helper.dart';
 import '../../shared/layouts/shared_bottom_nav_layout.dart';
 import 'widgets/liked_component_widget.dart';
 
@@ -11,7 +10,6 @@ class FavoritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         children: [
@@ -19,22 +17,15 @@ class FavoritePage extends StatelessWidget {
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: Text(
-                'LIKED',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 36,
-                  color: ColorsHelper.light,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
+              child: Text('LIKED', style: context.textTheme.headlineLarge),
             ),
           ),
           //AppBar [END]
 
           // Basket body [START]
           Container(
-            height: height * .6,
-            margin: EdgeInsets.only(top: height * .14),
+            height: context.height * .6,
+            margin: EdgeInsets.only(top: context.height * .14),
             child: ListView(
               children: const [
                 LikedComponentWidget(

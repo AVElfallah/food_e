@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/shared/widgets/upper_text_label.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../shared/layouts/shared_bottom_nav_layout.dart';
 import 'layouts/categories_chips_layouts.dart';
@@ -71,9 +71,7 @@ class _SearchPageState extends State<SearchPage> {
                         vertical: 10,
                       ),
                       child: TextFormField(
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                        ),
+                        style: context.textTheme.bodyMedium,
                         focusNode: fNode,
                         controller: searchController,
                         onChanged: (sText) {
@@ -159,10 +157,8 @@ class _SearchPageState extends State<SearchPage> {
               ),
               title: Text(
                 historySearch[index],
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color: ColorsHelper.gray,
-                ),
+                style: context.textTheme.bodyMedium
+                    ?.copyWith(color: ColorsHelper.gray),
               ),
               trailing: SvgPicture.asset(AssetsHelper.xIcon),
             ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeCustomAppbarWidget extends StatelessWidget
     implements PreferredSizeWidget {
@@ -22,17 +22,13 @@ class HomeCustomAppbarWidget extends StatelessWidget
         child: Row(
           children: [
             Text.rich(
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-              ),
+              style: context.textTheme.bodyLarge!,
               TextSpan(
                 text: 'Hello, ',
                 children: [
                   TextSpan(
                     text: 'john',
-                    style: GoogleFonts.poppins(
+                    style: context.textTheme.bodyLarge!.copyWith(
                       color: ColorsHelper.primary,
                     ),
                   ),
@@ -43,10 +39,8 @@ class HomeCustomAppbarWidget extends StatelessWidget
             const Spacer(),
             Text(
               'Home',
-              style: GoogleFonts.bebasNeue(
+              style: context.textTheme.labelSmall!.copyWith(
                 color: ColorsHelper.secondary,
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
               ),
             ),
             const Icon(

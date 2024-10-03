@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'widgets/policy_parts_widgets.dart';
 
@@ -22,10 +22,7 @@ class PrivacyPolicyPage extends StatelessWidget {
           children: [
             Text(
               'PRIVACY POLICY',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 36,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge,
             ),
             SizedBox(
               height: height * .05,

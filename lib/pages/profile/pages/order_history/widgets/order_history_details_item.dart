@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../../../helpers/colors_helper.dart';
 import '../../../../../model/order_history_model.dart';
@@ -26,25 +26,20 @@ class _OrderHistoryDetailsItemState extends State<OrderHistoryDetailsItem> {
         children: [
           Text(
             (widget.model?.mealName!) ?? '',
-            style: GoogleFonts.poppins(
-              fontSize: 14,
-              color: Colors.white,
-            ),
+            style: context.textTheme.bodyMedium!,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '${widget.model!.quantity!} pieces',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 18,
+                style: context.textTheme.headlineSmall!.copyWith(
                   color: ColorsHelper.gray,
                 ),
               ),
               Text(
                 '\$ ${widget.model?.total}',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 18,
+                style: context.textTheme.headlineSmall!.copyWith(
                   color: ColorsHelper.gray,
                 ),
               ),

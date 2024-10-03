@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
+import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AccountProfilePage extends StatefulWidget {
   const AccountProfilePage({super.key});
@@ -35,10 +36,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
             // Page Title
             Text(
               'ACCOUNT AND PROFILE',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 36,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge,
             ),
             const SizedBox(height: 5),
             // Delete Account Button
@@ -58,8 +56,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                   const SizedBox(width: 14),
                   Text(
                     'Delete Account',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
+                    style: context.textTheme.bodyMedium!.copyWith(
                       color: ColorsHelper.alertError,
                     ),
                   ),
@@ -86,8 +83,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                           padding: const EdgeInsets.only(left: 18.0),
                           child: Text(
                             'FIRST NAME',
-                            style: GoogleFonts.bebasNeue(
-                              fontSize: 12,
+                            style: context.textTheme.labelSmall!.copyWith(
                               color: ColorsHelper.primary,
                             ),
                           ),
@@ -96,8 +92,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                           height: height * .05,
                           child: TextField(
                             controller: _firstNameController,
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
+                            style: context.textTheme.bodyMedium!.copyWith(
                               color: Colors.black,
                             ),
                             decoration: InputDecoration(
@@ -127,8 +122,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                           padding: const EdgeInsets.only(left: 18.0),
                           child: Text(
                             'LAST NAME',
-                            style: GoogleFonts.bebasNeue(
-                              fontSize: 12,
+                            style: context.textTheme.labelSmall!.copyWith(
                               color: ColorsHelper.primary,
                             ),
                           ),
@@ -137,8 +131,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                           height: height * .05,
                           child: TextField(
                             controller: _lastNameController,
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
+                            style: context.textTheme.bodyMedium!.copyWith(
                               color: Colors.black,
                             ),
                             decoration: InputDecoration(
@@ -170,8 +163,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                     padding: const EdgeInsets.only(left: 18.0),
                     child: Text(
                       'Email',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 12,
+                      style: context.textTheme.labelSmall!.copyWith(
                         color: ColorsHelper.primary,
                       ),
                     ),
@@ -180,8 +172,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                     height: height * .05,
                     child: TextField(
                       controller: _emailController,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
+                      style: context.textTheme.bodyMedium!.copyWith(
                         color: Colors.black,
                       ),
                       decoration: InputDecoration(
@@ -203,6 +194,8 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
             TextButton(
               onPressed: () {
                 // Navigate to change password page
+                Navigator.of(context)
+                    .pushNamed(RouterHelper.changePasswordPage);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -211,10 +204,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                   const SizedBox(width: 20),
                   Text(
                     'Change Password',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: Colors.white,
-                    ),
+                    style: context.textTheme.bodyMedium,
                   ),
                   const Spacer(),
                   const Icon(

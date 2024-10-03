@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/layouts/shared_bottom_nav_layout.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../helpers/assets_helper.dart';
 import 'widgets/profile_item_widget.dart';
@@ -38,11 +38,7 @@ class _ProfilePageState extends State<ProfilePage> {
           // User Name
           Text(
             'Abdulrhman Elfallah',
-            style: GoogleFonts.poppins(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
-            ),
+            style: context.textTheme.bodyMedium,
           ),
           const SizedBox(height: 20),
 
@@ -122,7 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   icon: Icons.logout,
                   title: 'Logout',
                   onTap: () {
-                    //TODO - don't forget to complite log out
+                    //TODO - don't forget to complete log out
                     Navigator.pop(context);
                   },
                 ),

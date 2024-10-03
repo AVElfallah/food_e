@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../helpers/assets_helper.dart';
 import '../../../helpers/colors_helper.dart';
@@ -45,18 +45,12 @@ class LikedComponentWidget extends StatelessWidget {
               children: [
                 Text(
                   name ?? 'Egg Salad',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: ColorsHelper.light,
-                  ),
+                  style: context.textTheme.bodyMedium,
                 ),
                 Text(
                   '\$ ${price ?? 46.00}',
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: 24,
-                    color: ColorsHelper.primary,
-                  ),
+                  style: context.textTheme.headlineMedium
+                      ?.copyWith(color: ColorsHelper.primary),
                 ),
               ],
             ),

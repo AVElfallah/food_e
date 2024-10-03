@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/model/meal_model.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../helpers/assets_helper.dart';
 import '../../../helpers/colors_helper.dart';
@@ -20,14 +20,12 @@ class MealRecommendedCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var canvasWidth = MediaQuery.of(context).size.width;
-    var canvasHeight = MediaQuery.of(context).size.height;
     MealModel meal = MealModel(
       mealName: mealName,
       price: price,
       imageURL: mealImagePNGPath,
     );
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(
           RouterHelper.mealPage,
@@ -35,8 +33,8 @@ class MealRecommendedCardWidget extends StatelessWidget {
         );
       },
       child: Container(
-        height: canvasHeight * .30,
-        width: canvasWidth * .45,
+        height: context.height * .30,
+        width: context.width * .45,
         margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -48,7 +46,7 @@ class MealRecommendedCardWidget extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             Container(
-              height: canvasHeight * .20,
+              height: context.height * .20,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.black,
@@ -84,9 +82,9 @@ class MealRecommendedCardWidget extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text(
                   mealName!,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
+                  style: context.textTheme.labelMedium?.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -99,9 +97,7 @@ class MealRecommendedCardWidget extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     child: Text(
                       '\$${price!.toStringAsFixed(2)}',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
+                      style: context.textTheme.headlineSmall?.copyWith(
                         color: ColorsHelper.primary,
                       ),
                     ),

@@ -65,6 +65,7 @@ class _PolicyPartsWidgetsState extends State<PolicyPartsWidgets> {
         ),
         Text(
           widget.description!,
+          textAlign: TextAlign.start,
           style: GoogleFonts.poppins(
             fontSize: 14,
             color: ColorsHelper.gray,

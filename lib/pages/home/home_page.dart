@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/pages/home/widgets/home_custom_appbar_widget.dart';
@@ -30,11 +30,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'Recommended for you',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 12,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: context.textTheme.labelSmall,
               ),
             ),
             const RecommendedForYouLayout(),
@@ -47,11 +43,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 'RESTAURANTS',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 12,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: context.textTheme.labelSmall,
               ),
             ),
 

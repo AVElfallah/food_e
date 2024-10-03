@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ContactSupportPage extends StatelessWidget {
   const ContactSupportPage({super.key});
@@ -28,10 +28,7 @@ class ContactSupportPage extends StatelessWidget {
                   children: [
                     Text(
                       'CONTACT SUPPORT',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 36,
-                        color: Colors.white,
-                      ),
+                      style: context.textTheme.headlineLarge,
                     ),
                     const SizedBox(
                       height: 30,
@@ -46,10 +43,7 @@ class ContactSupportPage extends StatelessWidget {
                       },
                       title: Text(
                         '+00 123 456 7890',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Colors.white,
-                        ),
+                        style: context.textTheme.bodyMedium!,
                       ),
                     ),
                     ListTile(
@@ -62,10 +56,7 @@ class ContactSupportPage extends StatelessWidget {
                       },
                       title: Text(
                         'support@foode.com',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Colors.white,
-                        ),
+                        style: context.textTheme.bodyMedium!,
                       ),
                     ),
                     ListTile(
@@ -78,10 +69,7 @@ class ContactSupportPage extends StatelessWidget {
                       },
                       title: Text(
                         'chat on WhatsApp',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: Colors.white,
-                        ),
+                        style: context.textTheme.bodyMedium!,
                       ),
                     ),
                   ],

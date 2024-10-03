@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/layouts/shared_bottom_nav_layout.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'widgets/basket_component_widget.dart';
 
@@ -22,11 +22,7 @@ class BasketPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 15),
               child: Text(
                 'BASKET',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 36,
-                  color: ColorsHelper.light,
-                  fontWeight: FontWeight.w300,
-                ),
+                style: context.textTheme.headlineLarge,
               ),
             ),
           ),
@@ -71,10 +67,8 @@ class BasketPage extends StatelessWidget {
                   children: [
                     Text(
                       '\$ 65.00',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 36,
+                      style: context.textTheme.headlineLarge?.copyWith(
                         color: ColorsHelper.secondary,
-                        fontWeight: FontWeight.w300,
                       ),
                     ),
                     ElevatedButton(
