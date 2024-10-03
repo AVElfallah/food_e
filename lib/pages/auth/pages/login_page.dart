@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 
@@ -12,25 +12,23 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: RoleModelAppbarWidget(context),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
             child: Text(
               'Login',
-              style: GoogleFonts.bebasNeue(fontSize: 34, color: Colors.white),
+              style: context.textTheme.headlineLarge,
             ),
           ),
-          const Spacer(),
+          SizedBox(
+            height: context.height * .25,
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 35),
             child: Text(
               'email',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 17,
-                fontWeight: FontWeight.w300,
+              style: context.textTheme.labelSmall?.copyWith(
                 color: ColorsHelper.primary,
               ),
             ),
@@ -38,8 +36,8 @@ class LoginPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: TextFormField(
-              style: GoogleFonts.poppins(
-                fontSize: 14,
+              style: context.textTheme.bodyMedium?.copyWith(
+                color: Colors.black,
               ),
               decoration: InputDecoration(
                 hintText: 'johndoe@email.com',
@@ -58,9 +56,7 @@ class LoginPage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 35),
             child: Text(
               'Password',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 17,
-                fontWeight: FontWeight.w300,
+              style: context.textTheme.labelSmall?.copyWith(
                 color: ColorsHelper.primary,
               ),
             ),
@@ -68,8 +64,8 @@ class LoginPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: TextFormField(
-              style: GoogleFonts.poppins(
-                fontSize: 14,
+              style: context.textTheme.bodyMedium?.copyWith(
+                color: Colors.black,
               ),
               decoration: InputDecoration(
                 suffixIcon: IconButton(
@@ -99,9 +95,8 @@ class LoginPage extends StatelessWidget {
               },
               child: Text(
                 'Forgot Password',
-                style: GoogleFonts.poppins(
+                style: context.textTheme.bodyMedium?.copyWith(
                   color: ColorsHelper.gray,
-                  fontSize: 14,
                 ),
               ),
             ),
@@ -129,9 +124,8 @@ class LoginPage extends StatelessWidget {
             children: [
               Text(
                 'Don’t have an account?',
-                style: GoogleFonts.poppins(
+                style: context.textTheme.bodyMedium?.copyWith(
                   color: ColorsHelper.gray,
-                  fontSize: 14,
                 ),
               ),
               TextButton(
@@ -141,9 +135,8 @@ class LoginPage extends StatelessWidget {
                 },
                 child: Text(
                   'Register',
-                  style: GoogleFonts.poppins(
+                  style: context.textTheme.bodyMedium?.copyWith(
                     color: ColorsHelper.secondary,
-                    fontSize: 14,
                   ),
                 ),
               ),

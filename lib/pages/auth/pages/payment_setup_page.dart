@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 import '../../../shared/widgets/upper_text_label.dart';
@@ -12,26 +12,18 @@ class PaymentSetupPage extends StatelessWidget {
     var canvasWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: RoleModelAppbarWidget(context),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
             child: Text(
               'Payment SETUP',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 34,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge,
             ),
           ),
-          const Spacer(
-            flex: 1,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
+
+          SizedBox(height: context.height * .25),
+
           //start address
           const UpperTextLabel('CARD NUMBER'),
           Padding(
@@ -39,9 +31,8 @@ class PaymentSetupPage extends StatelessWidget {
             child: SizedBox(
               height: 45,
               child: TextFormField(
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
-                ),
+                style:
+                    context.textTheme.bodyMedium!.copyWith(color: Colors.black),
                 decoration: InputDecoration(
                   hintText: 'XXXX - XXXX - XXXX',
                   fillColor: Colors.white,
@@ -74,9 +65,8 @@ class PaymentSetupPage extends StatelessWidget {
                     height: 45,
                     width: canvasWidth * .42,
                     child: TextFormField(
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                      ),
+                      style: context.textTheme.bodyMedium!
+                          .copyWith(color: Colors.black),
                       decoration: InputDecoration(
                         hintText: 'MM / YY',
                         fillColor: Colors.white,
@@ -101,9 +91,8 @@ class PaymentSetupPage extends StatelessWidget {
                     height: 45,
                     width: canvasWidth * .45,
                     child: TextFormField(
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                      ),
+                      style: context.textTheme.bodyMedium!
+                          .copyWith(color: Colors.black),
                       decoration: InputDecoration(
                         hintText: '000',
                         fillColor: Colors.white,
@@ -144,9 +133,7 @@ class PaymentSetupPage extends StatelessWidget {
               onPressed: () {},
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                textStyle: GoogleFonts.poppins(
-                  fontSize: 14,
-                ),
+                textStyle: context.textTheme.bodyMedium!,
               ),
               child: const Text(
                 'Skip for now',

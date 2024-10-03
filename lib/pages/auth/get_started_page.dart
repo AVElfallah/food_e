@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../helpers/colors_helper.dart';
 import '../../../shared/constants/constant_string.dart';
@@ -29,12 +29,11 @@ class _GetStartedPageState extends State<GetStartedPage> {
               child: Text.rich(
                 TextSpan(
                   text: 'Food-',
-                  style: GoogleFonts.bebasNeue(
-                      fontSize: 20, color: ColorsHelper.white),
-                  children: const [
+                  style: context.textTheme.headlineMedium,
+                  children: [
                     TextSpan(
                       text: 'E',
-                      style: TextStyle(
+                      style: context.textTheme.headlineMedium?.copyWith(
                         color: ColorsHelper.primary,
                       ),
                     ),
@@ -72,20 +71,13 @@ class _GetStartedPageState extends State<GetStartedPage> {
                         ],
                       ),
                       textAlign: TextAlign.left,
-                      style: GoogleFonts.bebasNeue(
-                        color: Colors.white,
-                        fontSize: 34,
-                      ),
+                      style: context.textTheme.headlineLarge,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(22),
+                  const Padding(
+                    padding: EdgeInsets.all(22),
                     child: Text(
                       'Get started and enjoy the awesome local food right at your home.',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                      ),
                     ),
                   ),
                   const Spacer(),

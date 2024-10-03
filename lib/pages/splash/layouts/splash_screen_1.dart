@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/shared/constants/constant_string.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../helpers/colors_helper.dart';
 
@@ -20,8 +20,7 @@ class SplashScreen1 extends StatelessWidget {
             child: Text.rich(
               TextSpan(
                 text: 'Food-',
-                style: GoogleFonts.bebasNeue(
-                    fontSize: 36, color: ColorsHelper.white),
+                style: context.textTheme.headlineLarge,
                 children: const [
                   TextSpan(
                     text: 'E',

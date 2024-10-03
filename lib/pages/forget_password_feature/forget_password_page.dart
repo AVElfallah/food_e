@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 
 class ForgetPasswordPage extends StatelessWidget {
   const ForgetPasswordPage({super.key});
@@ -9,46 +10,33 @@ class ForgetPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      appBar: RoleModelAppbarWidget(context),
+      body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
             child: Text(
               'forgot password',
-              style: GoogleFonts.bebasNeue(fontSize: 34, color: Colors.white),
+              style: context.textTheme.headlineLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Text(
               'We’ll send a password reset link to your email.',
-              style: GoogleFonts.poppins(
+              style: context.textTheme.bodyMedium?.copyWith(
                 color: ColorsHelper.gray,
-                fontSize: 14,
               ),
             ),
           ),
-          const Spacer(
-            flex: 1,
+          SizedBox(
+            height: context.height * .25,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 35),
             child: Text(
               'email',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 17,
-                fontWeight: FontWeight.w300,
+              style: context.textTheme.labelSmall?.copyWith(
                 color: ColorsHelper.primary,
               ),
             ),
@@ -56,9 +44,8 @@ class ForgetPasswordPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: TextFormField(
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-              ),
+              style:
+                  context.textTheme.bodyMedium!.copyWith(color: Colors.black),
               decoration: InputDecoration(
                 hintText: 'johndoe@email.com',
                 fillColor: Colors.white,
@@ -88,9 +75,6 @@ class ForgetPasswordPage extends StatelessWidget {
           ),
           const SizedBox(
             height: 40,
-          ),
-          const Spacer(
-            flex: 2,
           ),
         ],
       ),

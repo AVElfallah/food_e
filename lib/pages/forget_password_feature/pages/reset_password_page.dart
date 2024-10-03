@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../helpers/colors_helper.dart';
 
@@ -11,28 +11,25 @@ class ResetPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: RoleModelAppbarWidget(context),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
             child: Text(
               'RESET PASSWORD',
-              style: GoogleFonts.bebasNeue(fontSize: 34, color: Colors.white),
+              style: context.textTheme.headlineLarge!,
             ),
           ),
           const SizedBox(
             height: 20,
           ),
+
           //start new password
           Padding(
             padding: const EdgeInsets.only(left: 25),
             child: Text(
               'New Password',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 17,
-                fontWeight: FontWeight.w300,
+              style: context.textTheme.labelSmall?.copyWith(
                 color: ColorsHelper.primary,
               ),
             ),
@@ -42,8 +39,8 @@ class ResetPasswordPage extends StatelessWidget {
             child: SizedBox(
               height: 45,
               child: TextFormField(
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
+                style: context.textTheme.bodyMedium!.copyWith(
+                  color: Colors.black,
                 ),
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
@@ -74,9 +71,7 @@ class ResetPasswordPage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 25),
             child: Text(
               'CONFIRM PASSWORD',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 17,
-                fontWeight: FontWeight.w300,
+              style: context.textTheme.labelSmall?.copyWith(
                 color: ColorsHelper.primary,
               ),
             ),
@@ -86,8 +81,8 @@ class ResetPasswordPage extends StatelessWidget {
             child: SizedBox(
               height: 45,
               child: TextFormField(
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
+                style: context.textTheme.bodyMedium!.copyWith(
+                  color: Colors.black,
                 ),
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
@@ -107,9 +102,9 @@ class ResetPasswordPage extends StatelessWidget {
               ),
             ),
           ),
-
-          /// end new password
-          const Spacer(),
+          SizedBox(
+            height: context.height * .35,
+          ),
           Center(
             child: ElevatedButton(
               onPressed: () {

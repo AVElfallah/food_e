@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../helpers/colors_helper.dart';
 
@@ -28,9 +28,7 @@ class _UpperTextLabelState extends State<UpperTextLabel> {
       padding: pad,
       child: Text(
         widget.text,
-        style: GoogleFonts.bebasNeue(
-          fontSize: widget.fontSize,
-          fontWeight: FontWeight.w300,
+        style: context.textTheme.labelSmall?.copyWith(
           color: ColorsHelper.primary,
         ),
       ),

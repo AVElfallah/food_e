@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/constants/constant_lists.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 import '../../../shared/widgets/upper_text_label.dart';
@@ -11,26 +11,19 @@ class AddressSetup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var canvasWidth = MediaQuery.of(context).size.width;
-    var canvasHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: RoleModelAppbarWidget(context),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
             child: Text(
               'ADDRESS SETUP',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 34,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge,
             ),
           ),
-          const Spacer(
-            flex: 1,
+          SizedBox(
+            height: context.height * .05,
           ),
           //start address
           const UpperTextLabel('ADDRESS LINE 1'),
@@ -39,8 +32,8 @@ class AddressSetup extends StatelessWidget {
             child: SizedBox(
               height: 45,
               child: TextFormField(
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
+                style: context.textTheme.bodyMedium?.copyWith(
+                  color: Colors.black,
                 ),
                 decoration: InputDecoration(
                   hintText: 'Address',
@@ -65,8 +58,8 @@ class AddressSetup extends StatelessWidget {
             child: SizedBox(
               height: 45,
               child: TextFormField(
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
+                style: context.textTheme.bodyMedium?.copyWith(
+                  color: Colors.black,
                 ),
                 decoration: InputDecoration(
                   hintText: 'Address',
@@ -98,10 +91,10 @@ class AddressSetup extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 45,
-                    width: canvasWidth * .42,
+                    width: context.width * .42,
                     child: TextFormField(
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
+                      style: context.textTheme.bodyMedium?.copyWith(
+                        color: Colors.black,
                       ),
                       decoration: InputDecoration(
                         hintText: '000-000',
@@ -125,10 +118,10 @@ class AddressSetup extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 45,
-                    width: canvasWidth * .45,
+                    width: context.width * .45,
                     child: TextFormField(
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
+                      style: context.textTheme.bodyMedium?.copyWith(
+                        color: Colors.black,
                       ),
                       decoration: InputDecoration(
                         hintText: 'City',
@@ -152,6 +145,8 @@ class AddressSetup extends StatelessWidget {
           ),
           //
           //Drop down list of countries
+
+          //TODO: create customize dropdownMenu
           Center(
             child: DropdownMenu<String>(
               dropdownMenuEntries: countryList
@@ -160,12 +155,10 @@ class AddressSetup extends StatelessWidget {
                   )
                   .toList(),
               hintText: 'Country',
-              textStyle: GoogleFonts.poppins(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-              ),
-              menuHeight: canvasHeight * .35,
-              width: canvasWidth * .89,
+              textStyle:
+                  context.textTheme.bodyMedium!.copyWith(color: Colors.black),
+              menuHeight: context.height * .35,
+              width: context.width * .89,
             ),
           ),
 
@@ -194,9 +187,7 @@ class AddressSetup extends StatelessWidget {
               },
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                textStyle: GoogleFonts.poppins(
-                  fontSize: 14,
-                ),
+                textStyle: context.textTheme.bodyMedium!,
               ),
               child: const Text(
                 'Skip for now',

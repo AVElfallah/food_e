@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 
@@ -12,18 +12,13 @@ class EmailSentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: RoleModelAppbarWidget(context),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
             child: Text(
               'Email sent',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 34,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge!,
             ),
           ),
           Padding(
@@ -33,10 +28,7 @@ class EmailSentPage extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 text: "we've sent you an email at ",
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w300,
-                ),
+                style: context.textTheme.bodyMedium,
                 children: const [
                   TextSpan(
                     text: 'johndoe@email.com\n',
@@ -52,7 +44,7 @@ class EmailSentPage extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(),
+          SizedBox(height: context.height * .35),
           //start Timer counter
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
@@ -60,6 +52,7 @@ class EmailSentPage extends StatelessWidget {
               '0:38',
               style: TextStyle(
                 color: ColorsHelper.secondary,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
@@ -68,24 +61,25 @@ class EmailSentPage extends StatelessWidget {
             height: 40,
           ),
 
-          // Text recived email
+          // Text received email
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               'Did not receive the email yet?',
-              style: GoogleFonts.poppins(
-                color: ColorsHelper.white,
-              ),
+              style: context.textTheme.bodyMedium,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: TextButton(
-              onPressed: () {},
-              child: Text(
-                'Resend',
-                style: GoogleFonts.poppins(
-                  color: ColorsHelper.primary,
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Resend',
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: ColorsHelper.primary,
+                  ),
                 ),
               ),
             ),
@@ -93,7 +87,7 @@ class EmailSentPage extends StatelessWidget {
           //end email
 
           const SizedBox(
-            height: 60,
+            height: 30,
           ),
 
           //

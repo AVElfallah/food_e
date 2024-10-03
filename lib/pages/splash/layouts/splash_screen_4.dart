@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../helpers/colors_helper.dart';
 import '../../../shared/constants/constant_string.dart';
@@ -51,8 +51,7 @@ class _SplashScreen4State extends State<SplashScreen4> {
               child: Text.rich(
                 TextSpan(
                   text: 'Food-',
-                  style: GoogleFonts.bebasNeue(
-                      fontSize: 20, color: ColorsHelper.white),
+                  style: context.textTheme.headlineMedium,
                   children: const [
                     TextSpan(
                       text: 'E',
@@ -89,20 +88,14 @@ class _SplashScreen4State extends State<SplashScreen4> {
                       ],
                     ),
                     textAlign: TextAlign.left,
-                    style: GoogleFonts.bebasNeue(
-                      color: Colors.white,
-                      fontSize: 34,
-                    ),
+                    style: context.textTheme.headlineLarge,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(22),
                   child: Text(
                     'Grab the best deals and discounts around and save on your every order',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white,
-                    ),
+                    style: context.textTheme.bodyMedium,
                   ),
                 ),
                 Center(
