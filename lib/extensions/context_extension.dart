@@ -5,4 +5,6 @@ extension ContextExtension on BuildContext {
 
   double get height => MediaQuery.of(this).size.height;
   double get width => MediaQuery.of(this).size.width;
+
+  bool get isDarkTheme => Theme.of(this).brightness == Brightness.dark;
 }

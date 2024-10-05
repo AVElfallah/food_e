@@ -3,6 +3,7 @@ import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/constants/constant_lists.dart';
 
+import '../../../shared/widgets/custom_drop_down_menu.dart';
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 import '../../../shared/widgets/upper_text_label.dart';
 
@@ -146,19 +147,10 @@ class AddressSetup extends StatelessWidget {
           //
           //Drop down list of countries
 
-          //TODO: create customize dropdownMenu
-          Center(
-            child: DropdownMenu<String>(
-              dropdownMenuEntries: countryList
-                  .map(
-                    (cun) => DropdownMenuEntry(value: cun, label: cun),
-                  )
-                  .toList(),
-              hintText: 'Country',
-              textStyle:
-                  context.textTheme.bodyMedium!.copyWith(color: Colors.black),
-              menuHeight: context.height * .35,
-              width: context.width * .89,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: CustomDropDownMenu(
+              optionList: countryList,
             ),
           ),
 

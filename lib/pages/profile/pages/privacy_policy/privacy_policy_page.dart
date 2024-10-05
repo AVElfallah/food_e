@@ -32,8 +32,8 @@ class PrivacyPolicyPage extends StatelessWidget {
                 children: [
                   PolicyPartsWidgets(
                     title: 'TITLE',
-                    description: '''
-              Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
+                    description:
+                        '''Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
               ''',
                     subTitles: const [
                       {
@@ -53,8 +53,9 @@ class PrivacyPolicyPage extends StatelessWidget {
                   ),
                   PolicyPartsWidgets(
                     title: 'TITLE',
-                    description: '''
-              Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
+                    titleIndex: 2,
+                    description:
+                        '''Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
               ''',
                     subTitles: const [
                       {

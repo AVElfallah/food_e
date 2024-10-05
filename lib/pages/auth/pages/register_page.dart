@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
+import 'package:food_e/pages/auth/methods/input_decoration.dart';
 
 import '../../../helpers/colors_helper.dart';
 import '../../../helpers/router_helper.dart';
@@ -41,13 +42,9 @@ class RegisterPage extends StatelessWidget {
               style: context.textTheme.bodyMedium?.copyWith(
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
+              decoration: CustomInputDecoration.basicTextFormField(
+                context,
                 hintText: 'John Doe',
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
               ),
             ),
           ),
@@ -67,13 +64,9 @@ class RegisterPage extends StatelessWidget {
               style: context.textTheme.bodyMedium?.copyWith(
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
+              decoration: CustomInputDecoration.basicTextFormField(
+                context,
                 hintText: 'johndoe@email.com',
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
               ),
             ),
           ),
@@ -93,13 +86,9 @@ class RegisterPage extends StatelessWidget {
               style: context.textTheme.bodyMedium?.copyWith(
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
+              decoration: CustomInputDecoration.basicTextFormField(
+                context,
                 hintText: '+00 123 456 7890',
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
               ),
             ),
           ),
@@ -122,20 +111,9 @@ class RegisterPage extends StatelessWidget {
               style: context.textTheme.bodyMedium?.copyWith(
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
+              decoration: CustomInputDecoration.password(
+                context,
                 hintText: '********',
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.visibility,
-                    color: ColorsHelper.primary,
-                  ),
-                ),
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
               ),
             ),
           ),

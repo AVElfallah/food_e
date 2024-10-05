@@ -4,6 +4,7 @@ import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
+import 'package:food_e/pages/auth/methods/input_decoration.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 
 class AccountProfilePage extends StatefulWidget {
@@ -95,13 +96,10 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                             style: context.textTheme.bodyMedium!.copyWith(
                               color: Colors.black,
                             ),
-                            decoration: InputDecoration(
+                            decoration:
+                                CustomInputDecoration.basicTextFormField(
+                              context,
                               hintText: 'John',
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
                             ),
                           ),
                         ),
@@ -134,13 +132,10 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                             style: context.textTheme.bodyMedium!.copyWith(
                               color: Colors.black,
                             ),
-                            decoration: InputDecoration(
+                            decoration:
+                                CustomInputDecoration.basicTextFormField(
+                              context,
                               hintText: 'Doe',
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
                             ),
                           ),
                         ),
@@ -175,13 +170,9 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                       style: context.textTheme.bodyMedium!.copyWith(
                         color: Colors.black,
                       ),
-                      decoration: InputDecoration(
+                      decoration: CustomInputDecoration.basicTextFormField(
+                        context,
                         hintText: 'John',
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
                       ),
                     ),
                   ),

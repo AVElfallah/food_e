@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ReferToAFriendPage extends StatefulWidget {
   const ReferToAFriendPage({super.key});
@@ -48,10 +48,7 @@ class _ReferToAFriendPageState extends State<ReferToAFriendPage> {
                   children: [
                     Text(
                       'REFER to a Friend',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 36,
-                        color: Colors.white,
-                      ),
+                      style: context.textTheme.headlineLarge,
                     ),
                     const SizedBox(
                       height: 30,
@@ -60,8 +57,7 @@ class _ReferToAFriendPageState extends State<ReferToAFriendPage> {
                       padding: const EdgeInsets.all(10),
                       child: Text(
                         'REFER CODE',
-                        style: GoogleFonts.bebasNeue(
-                          fontSize: 12,
+                        style: context.textTheme.labelSmall?.copyWith(
                           color: ColorsHelper.primary,
                         ),
                       ),
@@ -69,8 +65,7 @@ class _ReferToAFriendPageState extends State<ReferToAFriendPage> {
                     SizedBox(
                       height: height * .05,
                       child: TextField(
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
+                        style: context.textTheme.bodyMedium?.copyWith(
                           color: Colors.black,
                         ),
                         controller: _controller,

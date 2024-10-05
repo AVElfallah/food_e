@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../../../helpers/colors_helper.dart';
 
@@ -58,18 +58,14 @@ class _TermsAndConditionsPartsWidgetsState
       children: [
         Text(
           '$currentIndex- ${widget.title}',
-          style: GoogleFonts.bebasNeue(
-            fontSize: 24,
-            color: Colors.white,
-          ),
+          style: context.textTheme.headlineMedium,
         ),
         const SizedBox(
           height: 5,
         ),
         Text(
           widget.description!,
-          style: GoogleFonts.poppins(
-            fontSize: 14,
+          style: context.textTheme.bodyMedium?.copyWith(
             color: ColorsHelper.gray,
           ),
         ),
@@ -79,18 +75,14 @@ class _TermsAndConditionsPartsWidgetsState
         for (var i = 0; i < widget.subTitles!.length; i++) ...[
           Text(
             '$currentIndex.${i + 1}-${widget.subTitles![i]['title']}',
-            style: GoogleFonts.bebasNeue(
-              fontSize: 18,
-              color: Colors.white,
-            ),
+            style: context.textTheme.headlineSmall,
           ),
           const SizedBox(
             height: 10,
           ),
           Text(
             '${widget.subTitles![i]['description']}',
-            style: GoogleFonts.poppins(
-              fontSize: 14,
+            style: context.textTheme.bodyMedium?.copyWith(
               color: ColorsHelper.gray,
             ),
           ),

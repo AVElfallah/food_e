@@ -4,14 +4,15 @@ import 'package:food_e/model/meal_model.dart';
 import 'package:food_e/pages/auth/get_started_page.dart';
 import 'package:food_e/pages/auth/pages/address_setup.dart';
 import 'package:food_e/pages/auth/pages/payment_setup_page.dart';
-import 'package:food_e/pages/forget_password_feature/forget_password_page.dart';
+import 'package:food_e/pages/forget_password/forget_password_page.dart';
 import 'package:food_e/pages/auth/pages/login_page.dart';
 import 'package:food_e/pages/auth/pages/register_page.dart';
-import 'package:food_e/pages/forget_password_feature/pages/email_sent_page.dart';
-import 'package:food_e/pages/forget_password_feature/pages/reset_password_page.dart';
+import 'package:food_e/pages/forget_password/pages/email_sent_page.dart';
+import 'package:food_e/pages/forget_password/pages/reset_password_page.dart';
 import 'package:food_e/pages/home/home_page.dart';
 import 'package:food_e/pages/order/checkout/checkout_page.dart';
 import 'package:food_e/pages/profile/pages/change_password/change_password_page.dart';
+import 'package:food_e/pages/profile/pages/manage_addresses/pages/add_new_address_page.dart';
 import 'package:food_e/pages/splash/splash_page.dart';
 
 import '../pages/basket/basket_page.dart';
@@ -19,6 +20,9 @@ import '../pages/favorite/favorite_page.dart';
 import '../pages/meal/meal_page.dart';
 import '../pages/profile/pages/account_profile/account_profile_page.dart';
 import '../pages/profile/pages/contact_support/contact_support_page.dart';
+import '../pages/profile/pages/manage_addresses/manage_addresses_page.dart';
+import '../pages/profile/pages/manage_payment_methods/manage_payment_methods_page.dart';
+import '../pages/profile/pages/manage_payment_methods/pages/add_new_payment_methods_page.dart';
 import '../pages/profile/pages/order_history/order_history_page.dart';
 import '../pages/profile/pages/privacy_policy/privacy_policy_page.dart';
 import '../pages/profile/pages/refer_to_a_friend/refer_to_a_friend_page.dart';
@@ -55,6 +59,13 @@ class RouterHelper {
   static const privacyPolicyPage = '/home/profile/privacy_policy';
   static const termsAndConditionsPage = '/home/profile/terms_and_conditions';
   static const referToAFriendPage = '/home/profile/refer_to_a_friend';
+  static const manageAddressesPage = '/home/profile/manage_addresses_page';
+  static const addNewAddressesPage =
+      '/home/profile/manage_addresses_page/add_new_address_page';
+  static const managePaymentMethodsPage =
+      '/home/profile/manage_payment_methods_page';
+  static const addNewPaymentMethodsPage =
+      '/home/profile/manage_payment_methods_page/add_new_payment_method_page';
   //
   static const checkoutPage = '/home/basket/checkout';
 
@@ -110,6 +121,25 @@ class RouterHelper {
           settings: settings,
         );
 
+      // Manage payment methods route
+      case managePaymentMethodsPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const ManagePaymentMethodsPage(),
+          settings: settings,
+        );
+      // Manage addresses route
+      case manageAddressesPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const ManageAddressesPage(),
+          settings: settings,
+        );
+      // add new address page
+      case addNewAddressesPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const AddNewAddressPage(),
+          settings: settings,
+        );
+
       // AddressSetup page route
       case addressSetupPage:
         return MaterialPageRoute(
@@ -121,6 +151,13 @@ class RouterHelper {
       case paymentSetupPage:
         return MaterialPageRoute(
           builder: (ctx) => const PaymentSetupPage(),
+          settings: settings,
+        );
+
+      // add new payment method
+      case addNewPaymentMethodsPage:
+        return MaterialPageRoute(
+          builder: (ctx) => const AddNewPaymentMethodsPage(),
           settings: settings,
         );
 

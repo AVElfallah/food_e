@@ -87,14 +87,16 @@ class _SplashScreen2State extends State<SplashScreen2> {
                       ],
                     ),
                     textAlign: TextAlign.left,
-                    style: context.textTheme.headlineLarge,
+                    style: context.textTheme.headlineLarge
+                        ?.copyWith(color: Colors.white),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Text(
                     'Discover delicious food from the amazing restaurants near you',
-                    style: context.textTheme.bodyMedium,
+                    style: context.textTheme.bodyMedium
+                        ?.copyWith(color: Colors.white),
                   ),
                 ),
                 Center(

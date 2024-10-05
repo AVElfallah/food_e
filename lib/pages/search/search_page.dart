@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
+import 'package:food_e/pages/auth/methods/input_decoration.dart';
 import 'package:food_e/shared/widgets/upper_text_label.dart';
 
 import '../../shared/layouts/shared_bottom_nav_layout.dart';
@@ -79,7 +80,8 @@ class _SearchPageState extends State<SearchPage> {
                             isSearchQueryEmpty = sText.isEmpty;
                           });
                         },
-                        decoration: InputDecoration(
+                        decoration: CustomInputDecoration.basicTextFormField(
+                          context,
                           hintText: 'Cuisine / Dish',
                           fillColor: Colors.white,
                           filled: true,
@@ -96,9 +98,6 @@ class _SearchPageState extends State<SearchPage> {
                                   ),
                                 )
                               : const SizedBox.shrink(),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
                         ),
                       ),
                     ),

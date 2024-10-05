@@ -7,7 +7,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
   final List<String> svgIcons; // List of SVG icon paths
   final Color selectedColor; // Color for the selected icon
   final Color unselectedColor; // Color for the unselected icons
-  final Color? backgroundColor; // Background color of the navigation bar
+  // final Color? backgroundColor; // Background color of the navigation bar
   final bool showElevation; // Whether to show elevation (shadow) or not
   final ValueNotifier<int>? selectedIndex; // Notifier for the selected index
 
@@ -19,7 +19,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
     required this.svgIcons,
     required this.selectedColor,
     required this.unselectedColor,
-    this.backgroundColor = ColorsHelper.dark,
+    // this.backgroundColor = ColorsHelper.dark,
     this.showElevation = false,
     this.selectedIndex,
     this.onChangeSelection,
@@ -72,14 +72,16 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
       _controller.forward(from: 0); // Start the animation
     }
 
+    var isDarkTheme = Theme.of(context).brightness == Brightness.dark;
     return Hero(
       tag: 'bottomNAV_TAG', // Hero tag for animation between screens
       child: Container(
         padding: const EdgeInsets.symmetric(
             vertical: 10), // Padding for the container
         decoration: BoxDecoration(
-          color:
-              widget.backgroundColor, // Background color of the navigation bar
+          color: isDarkTheme
+              ? ColorsHelper.dark
+              : ColorsHelper.light, // Background color of the navigation bar
           boxShadow: widget.showElevation
               ? const [
                   BoxShadow(
@@ -124,8 +126,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                               // ignore: deprecated_member_use
                               color: isSelected
                                   ? widget.selectedColor
-                                  : widget
-                                      .unselectedColor, // Set icon color based on selection
+                                  //this is a bad using in customize i just use it in this solution only
+                                  : (isDarkTheme
+                                      ? widget.unselectedColor
+                                      : ColorsHelper
+                                          .dark), // Set icon color based on selection
                               width: 25,
                               height: 25,
                               fit: BoxFit
@@ -141,10 +146,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                                   child: Container(
                                     width: 8,
                                     height: 2,
-                                    color: isSelected
+                                    color: (isSelected
                                         ? widget.selectedColor
                                         : Colors
-                                            .transparent, // Show indicator if selected
+                                            .transparent), // Show indicator if selected
                                   ),
                                 );
                               },

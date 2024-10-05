@@ -4,6 +4,7 @@ import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
+import '../methods/input_decoration.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -39,13 +40,9 @@ class LoginPage extends StatelessWidget {
               style: context.textTheme.bodyMedium?.copyWith(
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
+              decoration: CustomInputDecoration.basicTextFormField(
+                context,
                 hintText: 'johndoe@email.com',
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
               ),
             ),
           ),
@@ -67,20 +64,9 @@ class LoginPage extends StatelessWidget {
               style: context.textTheme.bodyMedium?.copyWith(
                 color: Colors.black,
               ),
-              decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.visibility,
-                    color: ColorsHelper.primary,
-                  ),
-                ),
-                hintText: 'password',
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
+              decoration: CustomInputDecoration.password(
+                context,
+                hintText: '********',
               ),
             ),
           ),

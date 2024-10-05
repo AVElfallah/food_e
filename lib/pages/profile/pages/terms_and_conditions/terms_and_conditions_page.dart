@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../../shared/widgets/role_model_appbar_widget.dart';
 import 'widgets/terms_and_conditions_parts_widgets.dart';
@@ -28,10 +28,7 @@ class TermsAndConditionsPage extends StatelessWidget {
             // Title text with custom font.
             Text(
               'TERMS AND CONDITIONS',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 36,
-                color: Colors.white,
-              ),
+              style: context.textTheme.headlineLarge,
             ),
             SizedBox(
               height:
@@ -44,8 +41,8 @@ class TermsAndConditionsPage extends StatelessWidget {
                   // Custom widget displaying a section of terms and conditions.
                   TermsAndConditionsPartsWidgets(
                     title: 'TITLE',
-                    description: '''
-              Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
+                    description:
+                        '''Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
               ''',
                     subTitles: const [
                       {
@@ -66,8 +63,8 @@ class TermsAndConditionsPage extends StatelessWidget {
                   // Another section of terms and conditions.
                   TermsAndConditionsPartsWidgets(
                     title: 'TITLE',
-                    description: '''
-              Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
+                    description:
+                        '''Nesciunt tenetur maiores voluptatem maxime. Corrupti cum ab numquam eaque facere. Veritatis ut et eveniet autem dolor aut facere.
               ''',
                     subTitles: const [
                       {

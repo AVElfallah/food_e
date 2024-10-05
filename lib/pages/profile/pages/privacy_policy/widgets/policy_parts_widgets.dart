@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PolicyPartsWidgets extends StatefulWidget {
   const PolicyPartsWidgets._({
@@ -8,24 +8,26 @@ class PolicyPartsWidgets extends StatefulWidget {
     this.title,
     this.description,
     this.subTitles,
+    this.titleIndex,
   });
   final String? title;
   final String? description;
+  final int? titleIndex;
   final List<Map<String, String>>? subTitles;
-  static int counter = 0;
 
   factory PolicyPartsWidgets({
     Key? key,
     String? title,
     String? description,
+    int? titleIndex = 1,
     List<Map<String, String>>? subTitles,
   }) {
-    counter += 1;
     return PolicyPartsWidgets._(
       key: key,
       title: title,
       description: description,
       subTitles: subTitles,
+      titleIndex: titleIndex,
     );
   }
 
@@ -34,17 +36,9 @@ class PolicyPartsWidgets extends StatefulWidget {
 }
 
 class _PolicyPartsWidgetsState extends State<PolicyPartsWidgets> {
-  late final int currentIndex;
   @override
   void initState() {
     super.initState();
-    currentIndex = PolicyPartsWidgets.counter;
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    PolicyPartsWidgets.counter--;
   }
 
   @override
@@ -54,20 +48,15 @@ class _PolicyPartsWidgetsState extends State<PolicyPartsWidgets> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '$currentIndex- ${widget.title}',
-          style: GoogleFonts.bebasNeue(
-            fontSize: 24,
-            color: Colors.white,
-          ),
+          '${widget.titleIndex}- ${widget.title}',
+          style: context.textTheme.headlineMedium,
         ),
         const SizedBox(
           height: 5,
         ),
         Text(
           widget.description!,
-          textAlign: TextAlign.start,
-          style: GoogleFonts.poppins(
-            fontSize: 14,
+          style: context.textTheme.bodyMedium?.copyWith(
             color: ColorsHelper.gray,
           ),
         ),
@@ -76,19 +65,15 @@ class _PolicyPartsWidgetsState extends State<PolicyPartsWidgets> {
         ),
         for (var i = 0; i < widget.subTitles!.length; i++) ...[
           Text(
-            '$currentIndex.${i + 1}-${widget.subTitles![i]['title']}',
-            style: GoogleFonts.bebasNeue(
-              fontSize: 18,
-              color: Colors.white,
-            ),
+            '${widget.titleIndex}.${i + 1}-${widget.subTitles![i]['title']}',
+            style: context.textTheme.headlineSmall,
           ),
           const SizedBox(
             height: 10,
           ),
           Text(
             '${widget.subTitles![i]['description']}',
-            style: GoogleFonts.poppins(
-              fontSize: 14,
+            style: context.textTheme.bodyMedium?.copyWith(
               color: ColorsHelper.gray,
             ),
           ),

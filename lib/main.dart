@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Food-E',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
 
-      theme: ThemeHelper.lightTheme,
+      theme: ThemeHelper.lightTheme(canvasWidth, canvasHeight),
       darkTheme: ThemeHelper.darkTheme(canvasWidth, canvasHeight),
       //home:  ChangePasswordPage(),
       initialRoute: RouterHelper.splashPage,

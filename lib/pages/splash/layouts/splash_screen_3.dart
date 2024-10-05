@@ -51,7 +51,8 @@ class _SplashScreen3State extends State<SplashScreen3> {
               child: Text.rich(
                 TextSpan(
                   text: 'Food-',
-                  style: context.textTheme.headlineMedium,
+                  style: context.textTheme.headlineMedium
+                      ?.copyWith(color: Colors.white),
                   children: const [
                     TextSpan(
                       text: 'E',
@@ -87,14 +88,16 @@ class _SplashScreen3State extends State<SplashScreen3> {
                       ],
                     ),
                     textAlign: TextAlign.left,
-                    style: context.textTheme.headlineLarge,
+                    style: context.textTheme.headlineLarge
+                        ?.copyWith(color: Colors.white),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(22),
                   child: Text(
                     'Fresh and delicious local food delivered from the restaurants to your doorstep',
-                    style: context.textTheme.bodyMedium,
+                    style: context.textTheme.bodyMedium
+                        ?.copyWith(color: Colors.white),
                   ),
                 ),
                 Center(

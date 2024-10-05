@@ -58,14 +58,16 @@ class _ProfilePageState extends State<ProfilePage> {
                   icon: Icons.payment,
                   title: 'Manage Payment Methods',
                   onTap: () {
-                    //TODO -  add payment method here
+                    Navigator.of(context)
+                        .pushNamed(RouterHelper.managePaymentMethodsPage);
                   },
                 ),
                 ProfileItemWidget(
                   icon: Icons.location_on,
                   title: 'Manage Addresses',
                   onTap: () {
-                    //TODO - add address here
+                    Navigator.of(context)
+                        .pushNamed(RouterHelper.manageAddressesPage);
                   },
                 ),
                 ProfileItemWidget(
