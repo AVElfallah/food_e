@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/constants/constant_lists.dart';
+import 'package:food_e/shared/constants/constant_sizedboxes.dart';
 
+import '../../../shared/constants/constant_padding.dart';
 import '../../../shared/widgets/custom_drop_down_menu.dart';
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 import '../../../shared/widgets/upper_text_label.dart';
@@ -17,7 +19,7 @@ class AddressSetup extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: pad15All,
             child: Text(
               'ADDRESS SETUP',
               style: context.textTheme.headlineLarge,
@@ -49,9 +51,7 @@ class AddressSetup extends StatelessWidget {
           ),
 
           /// end address
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           //start address
           const UpperTextLabel('ADDRESS LINE 2'),
           Padding(
@@ -75,9 +75,7 @@ class AddressSetup extends StatelessWidget {
           ),
 
           /// end address
-          const SizedBox(
-            height: 30,
-          ),
+          h30SizedBox,
 
           ///
           Row(
@@ -141,9 +139,7 @@ class AddressSetup extends StatelessWidget {
           ),
           //End row
 
-          const SizedBox(
-            height: 30,
-          ),
+          h30SizedBox,
           //
           //Drop down list of countries
 
@@ -154,9 +150,7 @@ class AddressSetup extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
           Center(
             child: ElevatedButton(
               onPressed: () {
@@ -169,9 +163,7 @@ class AddressSetup extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           Center(
             child: TextButton(
               onPressed: () {
@@ -186,9 +178,7 @@ class AddressSetup extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
         ],
       ),
     );

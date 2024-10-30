@@ -3,6 +3,8 @@ import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 
+import '../../../shared/constants/constant_padding.dart';
+
 class AddsBannerWidget extends StatelessWidget {
   const AddsBannerWidget({
     super.key,
@@ -34,8 +36,8 @@ class AddsBannerWidget extends StatelessWidget {
               10,
             ),
           ),
-          padding: const EdgeInsets.all(20),
-          margin: const EdgeInsets.all(15),
+          padding: pad20All,
+          margin: pad15All,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

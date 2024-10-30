@@ -4,6 +4,7 @@ import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/pages/splash/layouts/splash_screen_3.dart';
 
 import '../../../helpers/colors_helper.dart';
+import '../../../shared/constants/constant_padding.dart';
 import '../../../shared/constants/constant_string.dart';
 
 class SplashScreen2 extends StatefulWidget {
@@ -92,7 +93,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: pad20All,
                   child: Text(
                     'Discover delicious food from the amazing restaurants near you',
                     style: context.textTheme.bodyMedium

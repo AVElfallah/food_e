@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
+import 'package:food_e/shared/constants/constant_sizedboxes.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
+import '../../../shared/constants/constant_padding.dart';
 
 class EmailSentPage extends StatelessWidget {
   const EmailSentPage({super.key});
@@ -15,7 +17,7 @@ class EmailSentPage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: pad15All,
             child: Text(
               'Email sent',
               style: context.textTheme.headlineLarge!,
@@ -57,9 +59,7 @@ class EmailSentPage extends StatelessWidget {
             ),
           ),
           //end
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
 
           // Text received email
           Padding(
@@ -86,9 +86,7 @@ class EmailSentPage extends StatelessWidget {
           ),
           //end email
 
-          const SizedBox(
-            height: 30,
-          ),
+          h30SizedBox,
 
           //
           Center(
@@ -103,9 +101,7 @@ class EmailSentPage extends StatelessWidget {
               child: const Text('OPEN EMAIL APP'),
             ),
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
         ],
       ),
     );

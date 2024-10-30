@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/model/meal_model.dart';
+import 'package:food_e/shared/constants/constant_padding.dart';
 
 import '../../../helpers/assets_helper.dart';
 import '../../../helpers/colors_helper.dart';
@@ -35,7 +36,7 @@ class MealRecommendedCardWidget extends StatelessWidget {
       child: Container(
         height: context.height * .30,
         width: context.width * .45,
-        margin: const EdgeInsets.all(20),
+        margin: pad20All,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(
@@ -77,7 +78,7 @@ class MealRecommendedCardWidget extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: pad8All,
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(

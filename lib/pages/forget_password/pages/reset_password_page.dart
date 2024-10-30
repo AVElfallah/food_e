@@ -3,6 +3,8 @@ import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 
 import '../../../helpers/colors_helper.dart';
+import '../../../shared/constants/constant_sizedboxes.dart';
+import '../../../shared/constants/constant_padding.dart';
 
 class ResetPasswordPage extends StatelessWidget {
   const ResetPasswordPage({super.key});
@@ -14,15 +16,13 @@ class ResetPasswordPage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: pad15All,
             child: Text(
               'RESET PASSWORD',
               style: context.textTheme.headlineLarge!,
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
 
           //start new password
           Padding(
@@ -63,9 +63,7 @@ class ResetPasswordPage extends StatelessWidget {
 
           /// end new password
           ///
-          const SizedBox(
-            height: 30,
-          ),
+          h30SizedBox,
           //start new password
           Padding(
             padding: const EdgeInsets.only(left: 25),
@@ -113,9 +111,7 @@ class ResetPasswordPage extends StatelessWidget {
               child: const Text('RESET PASSWORD'),
             ),
           ),
-          const SizedBox(
-            height: 40,
-          )
+          h40SizedBox
         ],
       ),
     );

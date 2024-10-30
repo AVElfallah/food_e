@@ -6,6 +6,7 @@ import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/model/meal_model.dart';
 import 'package:food_e/shared/widgets/custom_bottom_nav_widget.dart';
 import 'package:food_e/shared/widgets/upper_text_label.dart';
+import '../../../shared/constants/constant_padding.dart';
 
 class MealPage extends StatelessWidget {
   const MealPage({super.key});
@@ -35,7 +36,7 @@ class MealPage extends StatelessWidget {
                     5,
                   ),
                 ),
-                margin: const EdgeInsets.all(12),
+                margin: pad12All,
                 padding: const EdgeInsets.only(left: 8),
                 child: const Center(
                   child: Icon(
@@ -67,7 +68,7 @@ class MealPage extends StatelessWidget {
                 ),
                 //Row [START]
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: pad10All,
                   child: Flex(
                     direction: Axis.horizontal,
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -105,7 +106,7 @@ class MealPage extends StatelessWidget {
                 ),
                 //Description of meal [START]
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: pad10All,
                   child: Text(
                     """
 Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos rerum iusto. Beatae totam ab veritatis aliquid tenetur qui ut. Quia ut dolorum enim et. Exercitationem occaecati eum est ex qui harum aliquam.""",
@@ -192,7 +193,7 @@ Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos reru
                   height: 30,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(15),
+                  padding: pad15All,
                   child: ElevatedButton(
                     onPressed: () {},
                     child: const Text(

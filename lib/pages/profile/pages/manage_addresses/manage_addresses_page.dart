@@ -5,6 +5,8 @@ import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/layouts/shared_bottom_nav_layout.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 
+import '../../../../shared/constants/constant_padding.dart';
+
 class ManageAddressesPage extends StatelessWidget {
   const ManageAddressesPage({super.key});
 
@@ -44,7 +46,7 @@ class ManageAddressesPage extends StatelessWidget {
           Expanded(
             flex: 2,
             child: ListView(
-              padding: const EdgeInsets.all(24),
+              padding: pad24All,
               shrinkWrap: true,
               children: [
                 Text(

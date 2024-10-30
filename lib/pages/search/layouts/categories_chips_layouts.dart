@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/shared/constants/constant_padding.dart';
 
 class CustomGridView extends StatelessWidget {
   final List<String> items; // List of items to display in the grid view
@@ -8,7 +9,7 @@ class CustomGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: pad8All,
       child: Column(
         children: _buildRows(), // Build rows of chips based on the items list
       ),
@@ -34,7 +35,7 @@ class CustomGridView extends StatelessWidget {
               .sublist(index, index + count)
               .map((item) => Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: pad4All,
                       child: Chip(
                         label: Text(
                             item), // Create a chip for each item in the sublist

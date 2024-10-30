@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/pages/auth/methods/input_decoration.dart';
+import 'package:food_e/shared/constants/constant_sizedboxes.dart';
 
 import '../../../helpers/colors_helper.dart';
 import '../../../helpers/router_helper.dart';
+import '../../../shared/constants/constant_padding.dart';
+
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -19,7 +22,7 @@ class RegisterPage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: pad15All,
             child: Text(
               'Register',
               style: context.textTheme.headlineLarge,
@@ -118,9 +121,7 @@ class RegisterPage extends StatelessWidget {
             ),
           ),
           // end password textform
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           //start register button
           Center(
             child: ElevatedButton(
@@ -136,9 +137,7 @@ class RegisterPage extends StatelessWidget {
             ),
           ),
           //end register button
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           // have an account button
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -165,9 +164,7 @@ class RegisterPage extends StatelessWidget {
             ],
           ),
           //end have an account button
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
         ],
       ),
     );

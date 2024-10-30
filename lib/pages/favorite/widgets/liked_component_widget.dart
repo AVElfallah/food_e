@@ -4,6 +4,7 @@ import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../helpers/assets_helper.dart';
 import '../../../helpers/colors_helper.dart';
+import '../../../shared/constants/constant_padding.dart';
 
 class LikedComponentWidget extends StatelessWidget {
   const LikedComponentWidget(
@@ -22,7 +23,7 @@ class LikedComponentWidget extends StatelessWidget {
           //image [START]
           Container(
             width: 100,
-            margin: const EdgeInsets.all(8),
+            margin: pad8All,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
               image: DecorationImage(
@@ -38,7 +39,7 @@ class LikedComponentWidget extends StatelessWidget {
 
           // price and name column [START]
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: pad12All,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,11 +61,11 @@ class LikedComponentWidget extends StatelessWidget {
           const Spacer(),
           //count and delete button column [START]
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: pad12All,
             child: Column(
               children: [
                 Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: pad8All,
                   decoration: BoxDecoration(
                     color: ColorsHelper.alertError,
                     borderRadius: BorderRadius.circular(12),
@@ -75,7 +76,7 @@ class LikedComponentWidget extends StatelessWidget {
                 ),
                 const Spacer(),
                 Container(
-                  padding: const EdgeInsets.all(6),
+                  padding: pad6All,
                   decoration: BoxDecoration(
                     color: ColorsHelper.primary,
                     borderRadius: BorderRadius.circular(12),

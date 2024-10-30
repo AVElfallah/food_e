@@ -3,6 +3,7 @@ import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/pages/auth/methods/input_decoration.dart';
 
 import '../../../../../helpers/colors_helper.dart';
+import '../../../../../shared/constants/constant_padding.dart';
 import '../../../../../shared/layouts/shared_bottom_nav_layout.dart';
 import '../../../../../shared/widgets/role_model_appbar_widget.dart';
 
@@ -45,7 +46,7 @@ class AddNewPaymentMethodsPage extends StatelessWidget {
           Expanded(
             flex: 1,
             child: ListView(
-              padding: const EdgeInsets.all(24),
+              padding: pad24All,
               shrinkWrap: true,
               children: [
                 Padding(

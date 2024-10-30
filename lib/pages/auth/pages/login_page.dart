@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
+import 'package:food_e/shared/constants/constant_sizedboxes.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 import '../methods/input_decoration.dart';
+import '../../../shared/constants/constant_padding.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -16,7 +18,7 @@ class LoginPage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: pad15All,
             child: Text(
               'Login',
               style: context.textTheme.headlineLarge,
@@ -46,9 +48,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           Padding(
             padding: const EdgeInsets.only(left: 35),
             child: Text(
@@ -87,9 +87,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           Center(
             child: ElevatedButton(
               onPressed: () {
@@ -102,9 +100,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -128,9 +124,7 @@ class LoginPage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
         ],
       ),
     );

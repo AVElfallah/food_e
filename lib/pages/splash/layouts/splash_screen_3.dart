@@ -3,6 +3,7 @@ import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/assets_helper.dart';
 
 import '../../../helpers/colors_helper.dart';
+import '../../../shared/constants/constant_padding.dart';
 import '../../../shared/constants/constant_string.dart';
 import 'splash_screen_4.dart';
 
@@ -93,7 +94,7 @@ class _SplashScreen3State extends State<SplashScreen3> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(22),
+                  padding: pad22All,
                   child: Text(
                     'Fresh and delicious local food delivered from the restaurants to your doorstep',
                     style: context.textTheme.bodyMedium

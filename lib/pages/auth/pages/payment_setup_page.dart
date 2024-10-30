@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
+import 'package:food_e/shared/constants/constant_sizedboxes.dart';
 
 import '../../../shared/widgets/role_model_appbar_widget.dart';
 import '../../../shared/widgets/upper_text_label.dart';
+import '../../../shared/constants/constant_padding.dart';
 
 class PaymentSetupPage extends StatelessWidget {
   const PaymentSetupPage({super.key});
@@ -15,7 +17,7 @@ class PaymentSetupPage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: pad15All,
             child: Text(
               'Payment SETUP',
               style: context.textTheme.headlineLarge,
@@ -46,9 +48,7 @@ class PaymentSetupPage extends StatelessWidget {
           ),
 
           /// end address
-          const SizedBox(
-            height: 30,
-          ),
+          h30SizedBox,
 
           ///
           Row(
@@ -110,13 +110,9 @@ class PaymentSetupPage extends StatelessWidget {
           ),
           //End row
 
-          const SizedBox(
-            height: 30,
-          ),
+          h30SizedBox,
           //
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
           Center(
             child: ElevatedButton(
               onPressed: () {},
@@ -125,9 +121,7 @@ class PaymentSetupPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           Center(
             child: TextButton(
               onPressed: () {},
@@ -140,9 +134,7 @@ class PaymentSetupPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          h40SizedBox,
         ],
       ),
     );

@@ -5,6 +5,8 @@ import 'package:food_e/model/order_history_model.dart';
 import 'package:food_e/pages/profile/pages/order_history/layouts/order_details_layouts.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../../shared/constants/constant_sizedboxes.dart';
+
 class OrderHistoryItemWidget extends StatelessWidget {
   const OrderHistoryItemWidget({
     super.key,
@@ -43,9 +45,7 @@ class OrderHistoryItemWidget extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          h10SizedBox,
 
           //Quantity [START]
           Text(
@@ -55,9 +55,7 @@ class OrderHistoryItemWidget extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           if (!model!
               .isArrived!) // if the order did not arrived this button is shown
             ElevatedButton(

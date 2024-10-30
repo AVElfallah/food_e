@@ -4,6 +4,9 @@ import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 
+import '../../shared/constants/constant_sizedboxes.dart';
+import '../../../shared/constants/constant_padding.dart';
+
 class ForgetPasswordPage extends StatelessWidget {
   const ForgetPasswordPage({super.key});
 
@@ -14,7 +17,7 @@ class ForgetPasswordPage extends StatelessWidget {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: pad15All,
             child: Text(
               'forgot password',
               style: context.textTheme.headlineLarge,
@@ -56,9 +59,7 @@ class ForgetPasswordPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          h20SizedBox,
           Center(
             child: ElevatedButton(
               onPressed: () {
@@ -70,12 +71,8 @@ class ForgetPasswordPage extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          const SizedBox(
-            height: 40,
-          ),
+          h20SizedBox,
+          h40SizedBox,
         ],
       ),
     );

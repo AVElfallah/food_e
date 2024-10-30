@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 
+import '../../../../shared/constants/constant_padding.dart';
 import '../../../../shared/widgets/role_model_appbar_widget.dart';
 import 'widgets/terms_and_conditions_parts_widgets.dart';
 
@@ -20,7 +21,7 @@ class TermsAndConditionsPage extends StatelessWidget {
         leadingIcon: Icons.arrow_back_ios_new,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(14), // Padding around the body content.
+        padding: pad14All, // Padding around the body content.
         child: Column(
           crossAxisAlignment:
               CrossAxisAlignment.start, // Align children to the start.

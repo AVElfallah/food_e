@@ -4,6 +4,8 @@ import 'package:food_e/shared/layouts/shared_bottom_nav_layout.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../shared/constants/constant_padding.dart';
+
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({super.key});
 
@@ -22,7 +24,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
       ),
       body: Stack(
         children: [
-          //Page Tilte [START]
+          //Page Title [START]
           Positioned(
             left: 10,
             child: Text(
@@ -41,7 +43,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             child: Container(
               height: height * .50,
               width: double.infinity,
-              padding: const EdgeInsets.all(14),
+              padding: pad14All,
               child: Flex(
                 direction: Axis.vertical,
                 crossAxisAlignment: CrossAxisAlignment.start,

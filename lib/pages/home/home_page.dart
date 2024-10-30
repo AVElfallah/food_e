@@ -3,6 +3,7 @@ import 'package:food_e/extensions/context_extension.dart';
 
 import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/pages/home/widgets/home_custom_appbar_widget.dart';
+import 'package:food_e/shared/constants/constant_padding.dart';
 
 import '../../shared/layouts/shared_bottom_nav_layout.dart';
 import 'layouts/adds_banners_layouts.dart';
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
 
             // Recommended for you
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: pad8All,
               child: Text(
                 'Recommended for you',
                 style: context.textTheme.labelSmall,
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
             /// RESTAURANTS [START]
             ///
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: pad8All,
               child: Text(
                 'RESTAURANTS',
                 style: context.textTheme.labelSmall,

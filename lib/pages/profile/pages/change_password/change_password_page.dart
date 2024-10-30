@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
+import 'package:food_e/shared/constants/constant_padding.dart';
 
 import '../../../../helpers/colors_helper.dart';
 import '../../../../shared/widgets/role_model_appbar_widget.dart';
@@ -28,7 +29,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
         leadingIcon: Icons.arrow_back_ios_new,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: pad20All,
         child: ListView(
           children: [
             Text(

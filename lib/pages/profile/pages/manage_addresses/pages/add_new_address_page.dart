@@ -4,6 +4,7 @@ import 'package:food_e/shared/constants/constant_lists.dart';
 
 import '../../../../../helpers/colors_helper.dart';
 import '../../../../../helpers/router_helper.dart';
+import '../../../../../shared/constants/constant_padding.dart';
 import '../../../../../shared/layouts/shared_bottom_nav_layout.dart';
 import '../../../../../shared/widgets/custom_drop_down_menu.dart';
 import '../../../../../shared/widgets/role_model_appbar_widget.dart';
@@ -48,7 +49,7 @@ class AddNewAddressPage extends StatelessWidget {
           Expanded(
             flex: 3,
             child: ListView(
-              padding: const EdgeInsets.all(24),
+              padding: pad24All,
               shrinkWrap: true,
               children: [
                 Padding(

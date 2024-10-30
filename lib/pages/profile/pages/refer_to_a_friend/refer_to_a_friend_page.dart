@@ -4,6 +4,8 @@ import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 
+import '../../../../shared/constants/constant_padding.dart';
+
 class ReferToAFriendPage extends StatefulWidget {
   const ReferToAFriendPage({super.key});
 
@@ -54,7 +56,7 @@ class _ReferToAFriendPageState extends State<ReferToAFriendPage> {
                       height: 30,
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: pad10All,
                       child: Text(
                         'REFER CODE',
                         style: context.textTheme.labelSmall?.copyWith(

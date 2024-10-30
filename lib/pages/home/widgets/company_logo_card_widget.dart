@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_e/shared/constants/constant_padding.dart';
 
 import '../../../helpers/assets_helper.dart';
 
@@ -30,7 +31,7 @@ class CompanyLogoCardWidget extends StatelessWidget {
       ),
       width: 80,
       height: 80,
-      margin: const EdgeInsets.all(15),
+      margin: pad15All,
     );
   }
 }

@@ -5,7 +5,10 @@ import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/pages/auth/methods/input_decoration.dart';
+import 'package:food_e/shared/constants/constant_padding.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
+
+import '../../../../shared/constants/constant_sizedboxes.dart';
 
 class AccountProfilePage extends StatefulWidget {
   const AccountProfilePage({super.key});
@@ -31,7 +34,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
         leadingIcon: Icons.arrow_back_ios_new,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: pad20All,
         child: ListView(
           children: [
             // Page Title
@@ -39,7 +42,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
               'ACCOUNT AND PROFILE',
               style: context.textTheme.headlineLarge,
             ),
-            const SizedBox(height: 5),
+            h5SizedBox,
             // Delete Account Button
             TextButton(
               onPressed: () {
@@ -108,9 +111,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                   ),
                   //
                   //1st Name [END]
-                  const SizedBox(
-                    width: 10,
-                  ),
+                  h10SizedBox,
                   //2nd Name [START]
                   Expanded(
                     child: Column(
@@ -146,7 +147,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            h20SizedBox,
             // Email Field
             // Email Text [START]
             SizedBox(
@@ -206,7 +207,7 @@ class _AccountProfilePageState extends State<AccountProfilePage> {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            h20SizedBox,
             // Update Button
             Center(
               child: ElevatedButton(

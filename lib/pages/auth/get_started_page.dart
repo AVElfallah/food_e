@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
+import 'package:food_e/shared/constants/constant_padding.dart';
+import 'package:food_e/shared/constants/constant_sizedboxes.dart';
 
 import '../../../helpers/colors_helper.dart';
 import '../../../shared/constants/constant_string.dart';
@@ -53,9 +55,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    height: 50,
-                  ),
+                  h50SizedBox,
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: Text.rich(
@@ -75,7 +75,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(22),
+                    padding: pad22All,
                     child: Text(
                       'Get started and enjoy the awesome local food right at your home.',
                     ),
@@ -91,9 +91,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  h20SizedBox,
                   Center(
                     child: OutlinedButton(
                       onPressed: () {
@@ -106,9 +104,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  )
+                  h20SizedBox
                 ],
               ),
             ),

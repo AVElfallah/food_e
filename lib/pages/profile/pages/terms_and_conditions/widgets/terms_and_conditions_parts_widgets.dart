@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 
 import '../../../../../helpers/colors_helper.dart';
+import '../../../../../shared/constants/constant_sizedboxes.dart';
 
 class TermsAndConditionsPartsWidgets extends StatefulWidget {
   const TermsAndConditionsPartsWidgets._({
@@ -77,9 +78,7 @@ class _TermsAndConditionsPartsWidgetsState
             '$currentIndex.${i + 1}-${widget.subTitles![i]['title']}',
             style: context.textTheme.headlineSmall,
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          h10SizedBox,
           Text(
             '${widget.subTitles![i]['description']}',
             style: context.textTheme.bodyMedium?.copyWith(

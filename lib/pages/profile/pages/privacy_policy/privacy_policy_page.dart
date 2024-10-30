@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/shared/widgets/role_model_appbar_widget.dart';
 
+import '../../../../shared/constants/constant_padding.dart';
 import 'widgets/policy_parts_widgets.dart';
 
 class PrivacyPolicyPage extends StatelessWidget {
@@ -16,7 +17,7 @@ class PrivacyPolicyPage extends StatelessWidget {
         leadingIcon: Icons.arrow_back_ios_new,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(14),
+        padding: pad14All,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -4,6 +4,7 @@ import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
 
 import '../../../helpers/colors_helper.dart';
+import '../../../shared/constants/constant_padding.dart';
 import '../../../shared/constants/constant_string.dart';
 
 class SplashScreen4 extends StatefulWidget {
@@ -94,7 +95,7 @@ class _SplashScreen4State extends State<SplashScreen4> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(22),
+                  padding: pad22All,
                   child: Text(
                     'Grab the best deals and discounts around and save on your every order',
                     style: context.textTheme.bodyMedium
