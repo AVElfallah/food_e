@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/helpers/theme_helper.dart';
-import 'package:food_e/pages/splash/controllers/splash_page_controller.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_e/shared/common/riverpod_objects.dart';
 
 void main() {
+  RiverpodObjects.init();
+
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider<SplashPageController>(
-          create: (_) => SplashPageController(),
-        ),
-      ],
-      child: const MyApp(),
+    const ProviderScope(
+      child: MyApp(),
     ),
   );
 }

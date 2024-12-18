@@ -1,8 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:food_e/pages/splash/controllers/splash_page_controller.dart';
 import 'package:food_e/pages/splash/layouts/splash_screen_2.dart';
-import 'package:provider/provider.dart';
+import 'package:food_e/shared/common/riverpod_objects.dart';
 
 import 'layouts/splash_screen_1.dart';
 
@@ -27,7 +26,9 @@ class _SplashPageState extends State<SplashPage> {
 
     Future.delayed(hide1stScreenDuration).whenComplete(
       () {
-        Provider.of<SplashPageController>(context, listen: false)
+        RiverpodObjects.init()
+            .splashPageControllerProvider
+            .read(context)
             .toNextScreen();
       },
     );
@@ -35,7 +36,8 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    var pageProviderWatch = context.watch<SplashPageController>();
+    var pageProviderWatch =
+        RiverpodObjects.init().splashPageControllerProvider.watch(context);
     return FadeIn(
         animate: true,
         duration: const Duration(milliseconds: 1500),
