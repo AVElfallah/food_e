@@ -12,7 +12,7 @@ class RecommendedForYouLayout extends StatelessWidget {
     var canvasHeight = MediaQuery.of(context).size.height;
     return SizedBox(
       width: canvasWidth,
-      height: canvasHeight * .35,
+      height: canvasHeight * .45,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: const [

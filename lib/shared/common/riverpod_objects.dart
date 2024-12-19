@@ -8,7 +8,7 @@ class RiverpodObjects {
         ChangeNotifierProvider((ref) => SplashPageController());
   }
 
-  late final splashPageControllerProvider;
+  late final ChangeNotifierProvider<SplashPageController> splashPageControllerProvider;
 
   static final RiverpodObjects _instance = RiverpodObjects._();
   factory RiverpodObjects.init() => _instance;

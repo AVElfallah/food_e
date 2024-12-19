@@ -77,7 +77,7 @@ class RouterHelper {
       // Splash page route
       case splashPage:
         return MaterialPageRoute(
-            builder: (context) => const SplashPage(), settings: settings);
+            builder: (context) =>const SplashPage(), settings: settings);
 
       // GetStarted page route
       case getStartedPage:

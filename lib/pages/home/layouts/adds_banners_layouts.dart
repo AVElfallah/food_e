@@ -11,10 +11,11 @@ class AddsBannersLayouts extends StatelessWidget {
   Widget build(BuildContext context) {
     var canvasHeight = MediaQuery.of(context).size.height;
     return ImageSlideshow(
-      height: canvasHeight * .24,
+   
       isLoop: true,
       indicatorPadding: 10,
       indicatorBottomPadding: 0,
+      height: canvasHeight * .3,
       children: const [
         AddsBannerWidget(
           backgroundColor: ColorsHelper.secondary,

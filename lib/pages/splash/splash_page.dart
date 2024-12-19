@@ -1,19 +1,21 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_e/pages/splash/layouts/splash_screen_2.dart';
 import 'package:food_e/shared/common/riverpod_objects.dart';
 
 import 'layouts/splash_screen_1.dart';
 
-class SplashPage extends StatefulWidget {
+
+class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  ConsumerState<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
-  final screens = [
+class _SplashPageState extends ConsumerState<SplashPage> {
+ final screens = [
     const SplashScreen1(),
     const SplashScreen2(),
   ];
@@ -26,21 +28,23 @@ class _SplashPageState extends State<SplashPage> {
 
     Future.delayed(hide1stScreenDuration).whenComplete(
       () {
-        RiverpodObjects.init()
-            .splashPageControllerProvider
-            .read(context)
-            .toNextScreen();
+        ref.read(RiverpodObjects.init()
+            .splashPageControllerProvider).toNextScreen();
+            
       },
     );
+
   }
 
   @override
   Widget build(BuildContext context) {
     var pageProviderWatch =
-        RiverpodObjects.init().splashPageControllerProvider.watch(context);
+        ref.watch(RiverpodObjects.init().splashPageControllerProvider);
     return FadeIn(
         animate: true,
         duration: const Duration(milliseconds: 1500),
         child: screens[pageProviderWatch.screenNumber]);
   }
 }
+
+
