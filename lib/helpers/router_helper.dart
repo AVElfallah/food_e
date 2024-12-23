@@ -114,7 +114,8 @@ class RouterHelper {
       // Register page route
       case registerPage:
         return MaterialPageRoute(
-          builder: (ctx) => const RegisterPage(),
+          builder: (ctx) => ProviderScope(
+              overrides: [registerPageController], child: const RegisterPage()),
           settings: settings,
         );
 

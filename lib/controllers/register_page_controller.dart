@@ -33,4 +33,13 @@ class RegisterPageController extends ChangeNotifier {
       onError?.call("unknown error");
     }
   }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 }

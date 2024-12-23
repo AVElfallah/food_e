@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_e/data/firebase/auth_firebase.dart';
+
+import '../helpers/di_helper.dart';
 
 class LoginPageController extends ChangeNotifier {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -17,7 +18,7 @@ class LoginPageController extends ChangeNotifier {
   void login({Function? onSuccess, Function(String)? onError}) async {
     if (formKey.currentState!.validate()) {
       // Add your login logic here
-      (await AuthFirebaseService().signInWithEmailAndPassword(
+      (await DIHelper.instance.authService.signInWithEmailAndPassword(
               email: emailController.text, password: passwordController.text))
           .fold((l) {
         onError?.call(l.errorMessage);

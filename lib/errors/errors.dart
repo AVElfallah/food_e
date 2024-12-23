@@ -63,7 +63,63 @@ class AuthError<T> extends AppErrors<T> {
         'Account exists with different credential , please try again',
         errorParms,
       );
+    } else if (e.code == 'invalid-credential') {
+      return AuthError(
+        'Invalid credential , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'invalid-verification-code') {
+      return AuthError(
+        'Invalid verification code , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'invalid-verification-id') {
+      return AuthError(
+        'Invalid verification id , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'invalid-phone-number') {
+      return AuthError(
+        'Invalid phone number , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'missing-phone-number') {
+      return AuthError(
+        'Missing phone number , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'missing-verification-code') {
+      return AuthError(
+        'Missing verification code , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'missing-verification-id') {
+      return AuthError(
+        'Missing verification id , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'invalid-verification-id') {
+      return AuthError(
+        'Invalid verification id , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'invalid-verification-code') {
+      return AuthError(
+        'Invalid verification code , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'invalid-verification-id') {
+      return AuthError(
+        'Invalid verification id , please try again',
+        errorParms,
+      );
+    } else if (e.code == 'invalid-verification-code') {
+      return AuthError(
+        'Invalid verification code , please try again',
+        errorParms,
+      );
     }
+
     return AuthError(
       e.code,
       errorParms,
