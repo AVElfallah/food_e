@@ -29,7 +29,7 @@ class AddsBannerWidget extends StatelessWidget {
       children: [
         Container(
           width: canvasWidth,
-          height: canvasHeight * .22,
+          height: canvasHeight * .25,
           decoration: BoxDecoration(
             color: backgroundColor ?? ColorsHelper.primaryLight,
             borderRadius: BorderRadius.circular(
@@ -41,34 +41,44 @@ class AddsBannerWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RichText(
-                text: TextSpan(
-                  text: 'Get ',
-                  style: context.textTheme.headlineMedium?.copyWith(
+              Flexible(
+                flex: 2,
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Get ',
+                    style: context.textTheme.headlineMedium?.copyWith(
+                      color: foregroundColor ?? Colors.white,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: sale != null ? '$sale%' : '50% ',
+                        style: context.textTheme.headlineLarge?.copyWith(
+                          color: saleColor ?? ColorsHelper.dark,
+                        ),
+                      ),
+                      const TextSpan(text: 'AS A Joining Bonus')
+                    ],
+                  ),
+                ),
+              ),
+              const Spacer(
+                flex: 1,
+              ),
+              Flexible(
+                flex: 1,
+                child: Text(
+                  'use code on checkout',
+                  style: context.textTheme.bodySmall?.copyWith(
                     color: foregroundColor ?? Colors.white,
                   ),
-                  children: [
-                    TextSpan(
-                      text: sale != null ? '$sale%' : '50% ',
-                      style: context.textTheme.headlineLarge?.copyWith(
-                        color: saleColor ?? ColorsHelper.dark,
-                      ),
-                    ),
-                    const TextSpan(text: 'AS A Joining Bonus')
-                  ],
                 ),
               ),
-              const Spacer(),
-              Text(
-                'use code on checkout',
-                style: context.textTheme.bodySmall?.copyWith(
-                  color: foregroundColor ?? Colors.white,
-                ),
-              ),
-              Text(
-                saleCode != null ? '$saleCode%' : 'NEW50',
-                style: context.textTheme.headlineLarge?.copyWith(
-                  color: saleColor ?? ColorsHelper.dark,
+              Expanded(
+                child: Text(
+                  saleCode != null ? '$saleCode%' : 'NEW50',
+                  style: context.textTheme.headlineLarge?.copyWith(
+                    color: saleColor ?? ColorsHelper.dark,
+                  ),
                 ),
               )
             ],

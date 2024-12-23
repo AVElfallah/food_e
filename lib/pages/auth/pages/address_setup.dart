@@ -167,7 +167,8 @@ class AddressSetup extends StatelessWidget {
           Center(
             child: TextButton(
               onPressed: () {
-                //TODO - add skip for now here
+                Navigator.of(context)
+                    .pushReplacementNamed(RouterHelper.homePage);
               },
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,

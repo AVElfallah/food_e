@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_e/controllers/riverpod_objects/riverpod_objects.dart';
 import 'package:food_e/helpers/page_builder.dart';
 import 'package:food_e/model/meal_model.dart';
 import 'package:food_e/pages/auth/get_started_page.dart';
@@ -29,6 +32,7 @@ import '../pages/profile/pages/refer_to_a_friend/refer_to_a_friend_page.dart';
 import '../pages/profile/pages/terms_and_conditions/terms_and_conditions_page.dart';
 import '../pages/profile/profile_page.dart';
 import '../pages/search/search_page.dart';
+import '../shared/common/custom_material_page_router.dart';
 
 /// This class is responsible for defining the routes and generating the appropriate
 /// pages based on the route settings. It helps in navigating between different pages
@@ -76,8 +80,12 @@ class RouterHelper {
     switch (settings.name ?? '') {
       // Splash page route
       case splashPage:
-        return MaterialPageRoute(
-            builder: (context) =>const SplashPage(), settings: settings);
+        return CustomMaterialPageRouter.withCondition(
+          condition: FirebaseAuth.instance.currentUser != null,
+          successPage: const HomePage(),
+          failurePage: const SplashPage(),
+          settings: settings,
+        );
 
       // GetStarted page route
       case getStartedPage:
@@ -89,7 +97,10 @@ class RouterHelper {
       // Login page route
       case loginPage:
         return MaterialPageRoute(
-          builder: (context) => const LoginPage(),
+          builder: (context) => ProviderScope(
+            overrides: [loginPageController],
+            child: const LoginPage(),
+          ),
           settings: settings,
         );
 
@@ -163,10 +174,17 @@ class RouterHelper {
 
       // Home page route
       case homePage:
-        return PageRouteSlidable(
-          page: (ctx) => const HomePage(),
-          settings: settings,
-        );
+        if (FirebaseAuth.instance.currentUser != null) {
+          return PageRouteSlidable(
+            page: (ctx) => const HomePage(),
+            settings: settings,
+          );
+        } else {
+          return MaterialPageRoute(
+            builder: (ctx) => const GetStartedPage(),
+            settings: settings,
+          );
+        }
 
       // Meal page route
       case mealPage:

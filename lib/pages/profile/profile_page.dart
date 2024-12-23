@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_e/controllers/riverpod_objects/riverpod_objects.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/helpers/router_helper.dart';
 import 'package:food_e/shared/layouts/shared_bottom_nav_layout.dart';
+import 'package:food_e/shared/widgets/loader_widget.dart';
+import 'package:food_e/shared/widgets/show_error_snackbar.dart';
 
 import '../../helpers/assets_helper.dart';
 import 'widgets/profile_item_widget.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends ConsumerStatefulWidget {
   const ProfilePage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _ProfilePageState extends ConsumerState<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    var mainProvider = mainAppController;
+    var profileProvider = profilePageController;
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,6 +83,27 @@ class _ProfilePageState extends State<ProfilePage> {
                     Navigator.pushNamed(context, RouterHelper.orderHistoryPage);
                   },
                 ),
+                Consumer(
+                  builder:
+                      (BuildContext context, WidgetRef ref, Widget? child) {
+                    return ListTile(
+                      title: Text(
+                        'Dark Mode',
+                        style: context.textTheme.bodyMedium,
+                      ),
+                      leading: const Icon(
+                        Icons.dark_mode,
+                        color: ColorsHelper.primary,
+                      ),
+                      trailing: Switch(
+                        value: ref.watch(mainProvider).isDarkMode,
+                        onChanged: (value) {
+                          ref.read(mainProvider).changeDarkMode();
+                        },
+                      ),
+                    );
+                  },
+                ),
                 ProfileItemWidget(
                   icon: Icons.support_agent,
                   title: 'Contact Support',
@@ -120,8 +147,15 @@ class _ProfilePageState extends State<ProfilePage> {
                   icon: Icons.logout,
                   title: 'Logout',
                   onTap: () {
-                    //TODO - don't forget to complete log out
-                    Navigator.pop(context);
+                    showLoader(context);
+                    ref.read(profileProvider).singout(onSuccess: () {
+                      hideLoader();
+                      Navigator.of(context)
+                          .popAndPushNamed(RouterHelper.loginPage);
+                    }, onError: (error) {
+                      hideLoader();
+                      showErrorSnackBar(context, error);
+                    });
                   },
                 ),
               ],

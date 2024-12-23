@@ -30,8 +30,9 @@ class ProfileItemWidget extends StatelessWidget {
         title, // Setting the title text
         style: context.textTheme.bodyMedium, // Styling the text
       ),
-      trailing: const Icon(Icons.arrow_forward_ios,
-          color: Colors.white), // Adding a trailing arrow icon
+      trailing: Icon(Icons.arrow_forward_ios,
+          color: context
+              .textTheme.bodyMedium!.color), // Adding a trailing arrow icon
       onTap: () {
         // Defining the action to be taken when the tile is tapped
         onTap?.call(); // Calling the onTap callback if it's provided

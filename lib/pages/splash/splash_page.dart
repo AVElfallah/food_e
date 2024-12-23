@@ -2,10 +2,9 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_e/pages/splash/layouts/splash_screen_2.dart';
-import 'package:food_e/shared/common/riverpod_objects.dart';
 
+import '../../controllers/riverpod_objects/riverpod_objects.dart';
 import 'layouts/splash_screen_1.dart';
-
 
 class SplashPage extends ConsumerStatefulWidget {
   const SplashPage({super.key});
@@ -15,7 +14,9 @@ class SplashPage extends ConsumerStatefulWidget {
 }
 
 class _SplashPageState extends ConsumerState<SplashPage> {
- final screens = [
+  var provider = splashPageController;
+
+  final screens = [
     const SplashScreen1(),
     const SplashScreen2(),
   ];
@@ -28,23 +29,17 @@ class _SplashPageState extends ConsumerState<SplashPage> {
 
     Future.delayed(hide1stScreenDuration).whenComplete(
       () {
-        ref.read(RiverpodObjects.init()
-            .splashPageControllerProvider).toNextScreen();
-            
+        ref.read(provider).toNextScreen();
       },
     );
-
   }
 
   @override
   Widget build(BuildContext context) {
-    var pageProviderWatch =
-        ref.watch(RiverpodObjects.init().splashPageControllerProvider);
+    var pageProviderWatch = ref.watch(provider);
     return FadeIn(
         animate: true,
         duration: const Duration(milliseconds: 1500),
         child: screens[pageProviderWatch.screenNumber]);
   }
 }
-
-

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_e/controllers/riverpod_objects/riverpod_objects.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 
 // CustomBottomNavigationBar is a custom widget that displays a bottom navigation bar with SVG icons.
-class CustomBottomNavigationBar extends StatefulWidget {
+class CustomBottomNavigationBar extends ConsumerStatefulWidget {
   final List<String> svgIcons; // List of SVG icon paths
   final Color selectedColor; // Color for the selected icon
   final Color unselectedColor; // Color for the unselected icons
@@ -26,12 +28,13 @@ class CustomBottomNavigationBar extends StatefulWidget {
   });
 
   @override
-  State<CustomBottomNavigationBar> createState() =>
-      _CustomBottomNavigationBarState();
+  ConsumerState createState() => _CustomBottomNavigationBarState();
 }
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
+class _CustomBottomNavigationBarState
+    extends ConsumerState<CustomBottomNavigationBar>
     with SingleTickerProviderStateMixin {
+  final mainAppProvider = mainAppController;
   // Animation controller for the animation
   late AnimationController _controller;
   // Animation for the selected indicator
@@ -72,14 +75,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
       _controller.forward(from: 0); // Start the animation
     }
 
-    var isDarkTheme = Theme.of(context).brightness == Brightness.dark;
+    final watchRefOfApp = ref.watch(mainAppProvider);
+
     return Hero(
       tag: 'bottomNAV_TAG', // Hero tag for animation between screens
       child: Container(
         padding: const EdgeInsets.symmetric(
             vertical: 10), // Padding for the container
         decoration: BoxDecoration(
-          color: isDarkTheme
+          color: watchRefOfApp.isDarkMode
               ? ColorsHelper.dark
               : ColorsHelper.light, // Background color of the navigation bar
           boxShadow: widget.showElevation
@@ -127,7 +131,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar>
                               color: isSelected
                                   ? widget.selectedColor
                                   //this is a bad using in customize i just use it in this solution only
-                                  : (isDarkTheme
+                                  : (watchRefOfApp.isDarkMode
                                       ? widget.unselectedColor
                                       : ColorsHelper
                                           .dark), // Set icon color based on selection
