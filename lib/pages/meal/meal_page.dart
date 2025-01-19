@@ -31,7 +31,7 @@ class MealPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white24,
+                  color: Colors.black26,
                   borderRadius: BorderRadius.circular(
                     5,
                   ),
@@ -49,13 +49,12 @@ class MealPage extends StatelessWidget {
             //LEADING [END]
             expandedHeight: context.height * .35,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                mealModel.imageURL!,
-                width: context.width,
-                height: context.height * .25,
-                fit: BoxFit.fill,
-              ),
-            ),
+                background: Image.network(
+              mealModel.images![0],
+              width: context.width,
+              height: context.height * .25,
+              fit: BoxFit.fill,
+            )),
           ),
           //AppBar [END]
 
@@ -74,7 +73,7 @@ class MealPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        'The Nautilus',
+                        mealModel.name!,
                         style: context.textTheme.bodyMedium?.copyWith(
                           color: ColorsHelper.secondary,
                         ),
@@ -89,7 +88,7 @@ class MealPage extends StatelessWidget {
                             height: 25,
                           ),
                           Text(
-                            '34 mins',
+                            '${mealModel.preparingTime} mins',
                             style: context.textTheme.bodyMedium?.copyWith(
                               color: ColorsHelper.secondary,
                             ),
@@ -108,8 +107,7 @@ class MealPage extends StatelessWidget {
                 Padding(
                   padding: pad10All,
                   child: Text(
-                    """
-Non odit iusto delectus maxime sit placeat voluptatum dolorem. Dolores quos rerum iusto. Beatae totam ab veritatis aliquid tenetur qui ut. Quia ut dolorum enim et. Exercitationem occaecati eum est ex qui harum aliquam.""",
+                    mealModel.description ?? '',
                     style: context.textTheme.bodyMedium?.copyWith(
                       color: ColorsHelper.gray,
                     ),

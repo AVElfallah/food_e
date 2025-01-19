@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_e/extensions/context_extension.dart';
 import 'package:food_e/helpers/router_helper.dart';
@@ -11,26 +12,17 @@ import '../../../helpers/colors_helper.dart';
 class MealRecommendedCardWidget extends StatelessWidget {
   const MealRecommendedCardWidget({
     super.key,
-    this.price = 5,
-    this.mealName = 'no name',
-    this.mealImagePNGPath = AssetsHelper.mealOfBreadImage,
+    required this.mealModel,
   });
-  final double? price;
-  final String? mealName;
-  final String? mealImagePNGPath;
+  final MealModel? mealModel;
 
   @override
   Widget build(BuildContext context) {
-    MealModel meal = MealModel(
-      mealName: mealName,
-      price: price,
-      imageURL: mealImagePNGPath,
-    );
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(
           RouterHelper.mealPage,
-          arguments: meal,
+          arguments: mealModel,
         );
       },
       child: Padding(
@@ -63,9 +55,13 @@ class MealRecommendedCardWidget extends StatelessWidget {
                       10,
                     ),
                     image: DecorationImage(
-                      image: AssetImage(
-                        mealImagePNGPath!,
-                      ),
+                      image: (mealModel?.images?[0] != null)
+                          ? NetworkImage(
+                              mealModel!.images![0],
+                            )
+                          : const AssetImage(
+                              AssetsHelper.mealOfEggImage,
+                            ),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -90,7 +86,7 @@ class MealRecommendedCardWidget extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      mealName!,
+                      mealModel?.name ?? 'Meal Name',
                       style: context.textTheme.labelMedium?.copyWith(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -105,7 +101,7 @@ class MealRecommendedCardWidget extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
-                          '\$${price!.toStringAsFixed(2)}',
+                          '\$${mealModel?.price?.toStringAsFixed(2)}',
                           style: context.textTheme.headlineSmall?.copyWith(
                             color: ColorsHelper.primary,
                           ),

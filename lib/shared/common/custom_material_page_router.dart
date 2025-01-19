@@ -20,6 +20,8 @@
 /// - [condition]: A boolean value that determines which page to navigate to.
 /// - [successPage]: The widget to display if [condition] is true.
 /// - [failurePage]: The widget to display if [condition] is false. Defaults to an empty widget.
+library;
+
 import 'package:flutter/material.dart';
 
 class CustomMaterialPageRouter extends MaterialPageRoute {

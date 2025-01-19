@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../forget_password_page_controller.dart';
+import '../home_page_controller.dart';
 import '../login_page_controller.dart';
 import '../main_app_controller.dart';
 import '../profile_page_controller.dart';
@@ -41,3 +42,8 @@ final ChangeNotifierProvider<ForgetPasswordPageController>
     ChangeNotifierProvider<ForgetPasswordPageController>(
         (ref) => ForgetPasswordPageController());
 //
+
+// Home Page Controller
+final ChangeNotifierProvider<HomePageController> homePageController =
+    ChangeNotifierProvider<HomePageController>((ref) => HomePageController());
+    //

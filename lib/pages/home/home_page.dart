@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_e/controllers/riverpod_objects/riverpod_objects.dart';
 import 'package:food_e/extensions/context_extension.dart';
 
 import 'package:food_e/helpers/assets_helper.dart';
@@ -10,11 +12,12 @@ import 'layouts/adds_banners_layouts.dart';
 import 'layouts/recommended_for_you_layout.dart';
 import 'widgets/company_logo_card_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final homePageProvider = ref.watch(homePageController);
     return Scaffold(
       appBar: HomeCustomAppbarWidget(),
       body: SingleChildScrollView(

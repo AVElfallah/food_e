@@ -82,7 +82,8 @@ class RouterHelper {
       case splashPage:
         return CustomMaterialPageRouter.withCondition(
           condition: FirebaseAuth.instance.currentUser != null,
-          successPage: const HomePage(),
+          successPage: ProviderScope(
+              overrides: [homePageController], child: const HomePage()),
           failurePage: const SplashPage(),
           settings: settings,
         );
@@ -177,7 +178,8 @@ class RouterHelper {
       case homePage:
         if (FirebaseAuth.instance.currentUser != null) {
           return PageRouteSlidable(
-            page: (ctx) => const HomePage(),
+            page: (ctx) => ProviderScope(
+                overrides: [homePageController], child: const HomePage()),
             settings: settings,
           );
         } else {
@@ -188,11 +190,12 @@ class RouterHelper {
         }
 
       // Meal page route
+      // ToDO: Implement MealPage
       case mealPage:
         MealModel meal = settings.arguments as MealModel;
 
         var rSettings = RouteSettings(
-          name: mealPage + (meal.mealName ?? 'error'),
+          name: mealPage + (meal.name ?? 'error'),
           arguments: settings.arguments,
         );
 
