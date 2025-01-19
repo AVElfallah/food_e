@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:food_e/controllers/riverpod_objects/riverpod_objects.dart';
 import 'package:food_e/extensions/context_extension.dart';
 
 import 'package:food_e/helpers/assets_helper.dart';
@@ -17,7 +16,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final homePageProvider = ref.watch(homePageController);
     return Scaffold(
       appBar: HomeCustomAppbarWidget(),
       body: SingleChildScrollView(

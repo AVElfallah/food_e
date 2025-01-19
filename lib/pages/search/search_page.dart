@@ -1,55 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_e/controllers/search_page_controller.dart';
 import 'package:food_e/extensions/context_extension.dart';
-import 'package:food_e/helpers/assets_helper.dart';
 import 'package:food_e/helpers/colors_helper.dart';
 import 'package:food_e/pages/auth/methods/input_decoration.dart';
+import 'package:food_e/pages/search/layouts/search_history_layout.dart';
 import 'package:food_e/shared/widgets/upper_text_label.dart';
 
+import '../../controllers/riverpod_objects/riverpod_objects.dart';
+import '../../helpers/debouncer.dart';
 import '../../shared/layouts/shared_bottom_nav_layout.dart';
 import 'layouts/categories_chips_layouts.dart';
+import 'widgets/search_card_result_widget.dart';
 
-class SearchPage extends StatefulWidget {
+class SearchPage extends ConsumerStatefulWidget {
   const SearchPage({super.key});
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
+  ConsumerState createState() => _SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
-  late final FocusNode fNode;
-  late final TextEditingController searchController;
-  bool searchBoxIsFocused = false;
-  bool isSearchQueryEmpty = true;
-
-  @override
-  void initState() {
-    super.initState();
-    fNode = FocusNode();
-    searchController = TextEditingController();
-    fNode.addListener(() {
-      if (fNode.hasFocus) {
-        searchBoxIsFocused = true;
-
-        setState(() {});
-      } else {
-        searchBoxIsFocused = false;
-        setState(() {});
-      }
-    });
-  }
-
+class _SearchPageState extends ConsumerState {
   @override
   Widget build(BuildContext context) {
+    final refSearchPageController =
+        ref.watch<SearchPageController>(searchPageController);
     var canvasHeight = MediaQuery.of(context).size.height;
-    final historySearch = [
-      'Biryani',
-      'Dosa',
-      'Veg Pakoda',
-      'Chicken Tikka',
-      'Tandoori',
-      'Falooda',
-    ];
 
     return Scaffold(
       body: CustomScrollView(
@@ -72,12 +48,17 @@ class _SearchPageState extends State<SearchPage> {
                         vertical: 10,
                       ),
                       child: TextFormField(
-                        style: context.textTheme.bodyMedium,
-                        focusNode: fNode,
-                        controller: searchController,
+                        style: context.textTheme.bodyMedium?.copyWith(
+                          color: Colors.black,
+                        ),
+                        focusNode: refSearchPageController.fNode,
+                        controller: refSearchPageController.searchController,
                         onChanged: (sText) {
-                          setState(() {
-                            isSearchQueryEmpty = sText.isEmpty;
+                          final Debouncer debouncer =
+                              Debouncer(milliseconds: 900);
+
+                          debouncer.run(() {
+                            refSearchPageController.searchForProduct();
                           });
                         },
                         decoration: CustomInputDecoration.basicTextFormField(
@@ -85,12 +66,14 @@ class _SearchPageState extends State<SearchPage> {
                           hintText: 'Cuisine / Dish',
                           fillColor: Colors.white,
                           filled: true,
-                          suffixIcon: !isSearchQueryEmpty
+                          suffixIcon: !refSearchPageController
+                                  .isSearchQueryEmpty
                               ? GestureDetector(
                                   onTap: () {
-                                    searchController.clear();
-                                    isSearchQueryEmpty = true;
-                                    setState(() {});
+                                    refSearchPageController.searchController
+                                        .clear();
+                                    refSearchPageController.isSearchQueryEmpty =
+                                        true;
                                   },
                                   child: const Icon(
                                     Icons.close,
@@ -109,60 +92,111 @@ class _SearchPageState extends State<SearchPage> {
           //Search bar [END]
 
           //Categories chips [START]
+
           // in this section the condition is applied if search box is not focused
           // and search query must be empty to show categories chips
-          if (!searchBoxIsFocused && isSearchQueryEmpty) ...[
-            const SliverToBoxAdapter(
+          if (!refSearchPageController.searchBoxIsFocused &&
+              refSearchPageController.searchResult.isEmpty) ...[
+            SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: UpperTextLabel('VIEW ALL'),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: InkWell(
+                  onTap: () {
+                    refSearchPageController.clearSelectedCategories();
+                  },
+                  child: const Align(
+                    alignment: Alignment.topRight,
+                    child: UpperTextLabel('Remove Filters'),
+                  ),
                 ),
               ),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: CustomGridView(
-                items: [
-                  'Breakfast',
-                  'Fastfood',
-                  'Lunch',
-                  'South Indian',
-                  'North Indian',
-                  'Dinner',
-                  'Pure Veg',
-                  'Non Veg',
-                ],
+                items: refSearchPageController.categories,
               ),
             ),
           ],
           //Categories chips [END]
 
-//Search history [START]
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: UpperTextLabel('CLEAR ALL'),
+          //Selected categories chips [START]
+          if (refSearchPageController.selectedCategories.isNotEmpty &&
+              refSearchPageController.searchBoxIsFocused) ...[
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: InkWell(
+                  onTap: () {
+                    refSearchPageController.clearSelectedCategories();
+                  },
+                  child: const Align(
+                    alignment: Alignment.topRight,
+                    child: UpperTextLabel('Remove Selected'),
+                  ),
+                ),
               ),
             ),
-          ),
-          SliverList.builder(
-            itemCount: historySearch.length,
-            itemBuilder: (ctx, index) => ListTile(
-              leading: SvgPicture.asset(
-                AssetsHelper.historyIcon,
+            SliverToBoxAdapter(
+              child: CustomGridView(
+                isFilters: false,
+                items: refSearchPageController.selectedCategories,
               ),
-              title: Text(
-                historySearch[index],
-                style: context.textTheme.bodyMedium
-                    ?.copyWith(color: ColorsHelper.gray),
-              ),
-              trailing: SvgPicture.asset(AssetsHelper.xIcon),
             ),
-          )
-          //Search History [END]
+          ],
+          //Selected categories chips [END]
+
+          //Result [START]
+          if (refSearchPageController.searchResult.isNotEmpty)
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: UpperTextLabel('RESULTS'),
+                ),
+              ),
+            ),
+          if (refSearchPageController.searchResult.isNotEmpty)
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: context.height * .38,
+                width: context.width,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return SearchCardResultWidget(
+                      mealModel: refSearchPageController.searchResult[index],
+                      height: context.height * .35,
+                      width: context.width * .55,
+                    );
+                  },
+                  itemCount: refSearchPageController.searchResult.length,
+                ),
+              ),
+            ),
+          /* SliverFillRemaining(
+              hasScrollBody: true,
+              child: SizedBox(
+                height: 200,
+                width: 200,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: refSearchPageController.searchResult.length,
+                  itemBuilder: (context, index) {
+                    return SearchCardResultWidget(
+                      mealModel: refSearchPageController.searchResult[index],
+                    );
+                  },
+                ),
+              ),
+            ), */
+
+          //Result [END]
+
+          //Search history [START]
+          const SliverToBoxAdapter(child: SearchHistoryLayout()),
+          //Search history [END]
         ],
       ),
       bottomNavigationBar: const SharedBottomNavLayout(

@@ -1,55 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:food_e/shared/constants/constant_padding.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_e/controllers/search_page_controller.dart';
+import 'package:food_e/helpers/colors_helper.dart';
+import 'package:food_e/model/category_model.dart';
 
-class CustomGridView extends StatelessWidget {
-  final List<String> items; // List of items to display in the grid view
+import '../../../controllers/riverpod_objects/riverpod_objects.dart';
 
-  const CustomGridView({super.key, required this.items});
+class CustomGridView extends ConsumerWidget {
+  final List<CategoryModel> items; // List of items to display in the grid view
+  final bool
+      isFilters; // Boolean value to determine if the grid view is for filters
+
+  const CustomGridView({super.key, required this.items, this.isFilters = true});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final searchPageProvider =
+        ref.watch<SearchPageController>(searchPageController);
     return Padding(
-      padding: pad8All,
-      child: Column(
-        children: _buildRows(), // Build rows of chips based on the items list
+      padding: const EdgeInsets.all(8.0),
+      child: Wrap(
+        direction: Axis.horizontal,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        runAlignment: WrapAlignment.spaceEvenly,
+        alignment: isFilters ? WrapAlignment.spaceAround : WrapAlignment.start,
+        children: items.map((category) {
+          return Chip(
+            label: Text(category.name ?? ''),
+            labelPadding: EdgeInsets.symmetric(
+                horizontal:
+                    searchPageProvider.selectedCategories.contains(category)
+                        ? 30
+                        : 10),
+            backgroundColor:
+                searchPageProvider.selectedCategories.contains(category)
+                    ? ColorsHelper.primary
+                    : Theme.of(context).chipTheme.backgroundColor,
+            onDeleted: () {
+              searchPageProvider.selectCategory(category);
+            },
+            deleteIcon: const Icon(
+              Icons.check,
+              color: Colors.white,
+            ),
+            avatar: category.imageUrl != null
+                ? CircleAvatar(
+                    backgroundImage: NetworkImage(category.imageUrl!),
+                  )
+                : null,
+            elevation: 2,
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          );
+        }).toList(),
       ),
     );
-  }
-
-  List<Widget> _buildRows() {
-    List<Widget> rows = []; // List to store the rows of chips
-    int index = 0; // Index to keep track of the current item in the items list
-    bool isThree = true; // Flag to determine the number of chips in each row
-
-    while (index < items.length) {
-      int count = isThree ? 3 : 2; // Number of chips in the current row
-      if (index + count > items.length) {
-        count =
-            items.length - index; // Adjust count if there are fewer items left
-      }
-
-      rows.add(
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: items
-              .sublist(index, index + count)
-              .map((item) => Expanded(
-                    child: Padding(
-                      padding: pad4All,
-                      child: Chip(
-                        label: Text(
-                            item), // Create a chip for each item in the sublist
-                      ),
-                    ),
-                  ))
-              .toList(),
-        ),
-      );
-
-      index += count; // Move to the next set of items
-      isThree = !isThree; // Toggle the number of chips in the next row
-    }
-
-    return rows; // Return the list of rows
   }
 }

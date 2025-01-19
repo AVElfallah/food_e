@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:food_e/controllers/fav_page_controller.dart';
+import 'package:food_e/controllers/riverpod_objects/riverpod_objects.dart';
 import 'package:food_e/extensions/context_extension.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../helpers/assets_helper.dart';
 import '../../shared/layouts/shared_bottom_nav_layout.dart';
 import 'widgets/liked_component_widget.dart';
 
-class FavoritePage extends StatelessWidget {
+class FavoritePage extends ConsumerStatefulWidget {
   const FavoritePage({super.key});
 
   @override
+  ConsumerState createState() => _FavoritePageState();
+}
+
+class _FavoritePageState extends ConsumerState {
+  @override
   Widget build(BuildContext context) {
+    final refWatch = ref.watch<FavPageController>(favPageController);
     return Scaffold(
       body: Stack(
         children: [
@@ -24,19 +33,25 @@ class FavoritePage extends StatelessWidget {
 
           // Basket body [START]
           Container(
-            height: context.height * .6,
+            height: context.height * .8,
             margin: EdgeInsets.only(top: context.height * .14),
-            child: ListView(
-              children: const [
-                LikedComponentWidget(
-                  price: 5,
-                ),
-                LikedComponentWidget(
-                  assetImage: AssetsHelper.mealOfBreadImage,
-                  price: 60,
-                  name: 'Grilled Salmon',
-                ),
-              ],
+            child: Skeletonizer(
+              ignoreContainers: true,
+              enabled: refWatch.products.isEmpty,
+              child: ListView.builder(
+                // show skeleton if products is empty at the first time
+                // this skeleton will be replaced with real data after loading
+                // but if there is data
+                itemCount:
+                    (refWatch.products.isEmpty ? 3 : refWatch.products.length),
+                itemBuilder: (context, index) {
+                  return refWatch.products.isEmpty
+                      ? const LikedComponentWidget()
+                      : LikedComponentWidget(
+                          mealModel: refWatch.products[index],
+                        );
+                },
+              ),
             ),
           ),
 

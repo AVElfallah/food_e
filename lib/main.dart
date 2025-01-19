@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:food_e/controllers/riverpod_objects/riverpod_objects.dart';
 import 'package:food_e/firebase_options.dart';
 import 'package:food_e/helpers/di_helper.dart';
@@ -12,7 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'data/app_internal_data.dart';
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  //await dotenv.load();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

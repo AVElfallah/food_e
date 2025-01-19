@@ -1,11 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../fav_page_controller.dart';
 import '../forget_password_page_controller.dart';
 import '../home_page_controller.dart';
 import '../login_page_controller.dart';
 import '../main_app_controller.dart';
 import '../profile_page_controller.dart';
 import '../register_page_controller.dart';
+import '../search_page_controller.dart';
 import '../splash_page_controller.dart';
 
 // Main App Controller
@@ -46,4 +48,13 @@ final ChangeNotifierProvider<ForgetPasswordPageController>
 // Home Page Controller
 final ChangeNotifierProvider<HomePageController> homePageController =
     ChangeNotifierProvider<HomePageController>((ref) => HomePageController());
-    //
+//
+
+// Liked page controller
+final ChangeNotifierProvider<FavPageController> favPageController =
+    ChangeNotifierProvider<FavPageController>((ref) => FavPageController());
+
+// search page controller
+final ChangeNotifierProvider<SearchPageController> searchPageController =
+    ChangeNotifierProvider<SearchPageController>(
+        (ref) => SearchPageController());

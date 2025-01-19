@@ -270,7 +270,8 @@ class RouterHelper {
       // Favorite page route
       case favoritePage:
         return PageRouteSlidable(
-          page: (ctx) => const FavoritePage(),
+          page: (ctx) => ProviderScope(
+              overrides: [favPageController], child: const FavoritePage()),
           settings: settings,
         );
 
