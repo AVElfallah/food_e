@@ -41,9 +41,23 @@ All UI rights reserved to [Satwik Gawand 🦄](https://bento.me/satwikgawand)
 This project is primarily focused on the UI and testing Flutter's powerful capabilities. While it may not include backend functionalities, it lays the groundwork for future development and showcases how to create responsive layouts and interactive components.
 
 ## Screenshots 📸
-- *HOME PAGE That contains the room devices*
+- *Splash screen*
 
 <div align='center'>
-   <a href="url"><img src="" align="center" height="600" width="300" ></a>
+   <a href="url"><img src="screen_shots/splash.gif" align="center" height="600" width="300" ></a>
 </div>
+
+- *Register a new user*
+
+<div align='center'>
+   <a href="url"><img src="screen_shots/new_user.gif" align="center" height="600" width="300" ></a>
+</div>
+
+
+- *Explore the application *
+
+<div align='center'>
+   <a href="url"><img src="screen_shots/new_user.gif" align="center" height="600" width="300" ></a>
+</div>
+
 
