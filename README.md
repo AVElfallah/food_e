@@ -3,6 +3,12 @@ Welcome to the Food E App Project! 🎉
 
 This project serves as an exciting learning experience in building a user-friendly interface for managing account profiles and viewing order history. It showcases the powerful capabilities of Flutter in creating beautiful and responsive UIs.
 
+## Copyrights
+All UI rights reserved to [Satwik Gawand 🦄](https://bento.me/satwikgawand)
+<div align='center'>
+   <a href="https://bento.me/satwikgawand"><img src="screen_shots\copy_rights.svg" align="center" height="100" width="300" ></a>
+</div>
+
 ## Technologies & Packages 💻
 - **animate_do**: ^3.3.4
 - **app_links**: ^6.3.3
