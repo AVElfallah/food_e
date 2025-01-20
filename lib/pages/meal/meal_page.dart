@@ -119,23 +119,23 @@ class MealPage extends StatelessWidget {
                 ),
                 //Quantity [START]
                 const UpperTextLabel('QUANTITY'),
-                Flex(
-                  direction: Axis.horizontal,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: context.height * .05,
-                      width: context.width * .45,
-                      margin: const EdgeInsets.only(left: 12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(
-                          20,
+                StatefulBuilder(builder: (ctx, stateBuilder) {
+                  return Flex(
+                    direction: Axis.horizontal,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: context.height * .05,
+                        width: context.width * .45,
+                        margin: const EdgeInsets.only(left: 12),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            20,
+                          ),
                         ),
-                      ),
-                      padding: const EdgeInsets.only(left: 20),
-                      child: StatefulBuilder(builder: (ctx, stateBuilder) {
-                        return Row(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Row(
                           children: [
                             Text(
                               quantity.toString(),
@@ -171,20 +171,20 @@ class MealPage extends StatelessWidget {
                               ),
                             ),
                           ],
-                        );
-                      }),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Text(
-                        '\$ ${mealModel.price?.toStringAsFixed(2)}',
-                        style: context.textTheme.headlineMedium?.copyWith(
-                          color: ColorsHelper.primary,
                         ),
                       ),
-                    )
-                  ],
-                ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Text(
+                          '\$ ${(mealModel.price! * quantity).toStringAsFixed(2)}',
+                          style: context.textTheme.headlineMedium?.copyWith(
+                            color: ColorsHelper.primary,
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                }),
 
                 //Quantity [END]
                 const SizedBox(
