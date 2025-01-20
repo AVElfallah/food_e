@@ -41,5 +41,9 @@ All UI rights reserved to [Satwik Gawand 🦄](https://bento.me/satwikgawand)
 This project is primarily focused on the UI and testing Flutter's powerful capabilities. While it may not include backend functionalities, it lays the groundwork for future development and showcases how to create responsive layouts and interactive components.
 
 ## Screenshots 📸
-Click to see more images
+- *HOME PAGE That contains the room devices*
+
+<div align='center'>
+   <a href="url"><img src="" align="center" height="600" width="300" ></a>
+</div>
 
