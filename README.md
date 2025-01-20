@@ -1,6 +1,4 @@
 # Food E App
-Build Status
-
 Welcome to the Food E App Project! 🎉
 
 This project serves as an exciting learning experience in building a user-friendly interface for managing account profiles and viewing order history. It showcases the powerful capabilities of Flutter in creating beautiful and responsive UIs.
