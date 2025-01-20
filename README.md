@@ -6,7 +6,7 @@ This project serves as an exciting learning experience in building a user-friend
 ## Copyrights
 All UI rights reserved to [Satwik Gawand 🦄](https://bento.me/satwikgawand)
 <div align='center'>
-   <a href="https://bento.me/satwikgawand"><img src="screen_shots\copy_rights.svg" align="center" height="100" width="300" ></a>
+   <a href="https://bento.me/satwikgawand"><img src="screen_shots/copyright.png" align="center" height="200" width="200" ></a>
 </div>
 
 ## Technologies & Packages 💻
@@ -43,26 +43,3 @@ This project is primarily focused on the UI and testing Flutter's powerful capab
 ## Screenshots 📸
 Click to see more images
 
-## Project Structure
-
-```plaintext
-food_e/
-├── lib/
-│   ├── helpers/
-│   │   ├── assets_helper.dart
-│   │   └── colors_helper.dart
-│   ├── model/
-│   │   └── order_history_model.dart
-│   ├── pages/
-│   │   ├── profile/
-│   │   │   ├── pages/
-│   │   │   │   └── account_profile/
-│   │   │   │       └── account_profile_page.dart
-│   │   └── order_history/
-│   │       └── order_history_page.dart
-│   ├── shared/
-│   │   └── widgets/
-│   │       ├── role_model_appbar_widget.dart
-│   │       └── order_history_item_widget.dart
-│   └── main.dart
-└── README.md
