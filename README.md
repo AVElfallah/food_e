@@ -37,26 +37,3 @@ This project is primarily focused on the UI and testing Flutter's powerful capab
 ## Screenshots 📸
 Click to see more images
 
-## Project Structure
-
-```plaintext
-food_e/
-├── lib/
-│   ├── helpers/
-│   │   ├── assets_helper.dart
-│   │   └── colors_helper.dart
-│   ├── model/
-│   │   └── order_history_model.dart
-│   ├── pages/
-│   │   ├── profile/
-│   │   │   ├── pages/
-│   │   │   │   └── account_profile/
-│   │   │   │       └── account_profile_page.dart
-│   │   └── order_history/
-│   │       └── order_history_page.dart
-│   ├── shared/
-│   │   └── widgets/
-│   │       ├── role_model_appbar_widget.dart
-│   │       └── order_history_item_widget.dart
-│   └── main.dart
-└── README.md
