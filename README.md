@@ -57,7 +57,7 @@ This project is primarily focused on the UI and testing Flutter's powerful capab
 - *Explore the application *
 
 <div align='center'>
-   <a href="url"><img src="screen_shots/new_user.gif" align="center" height="600" width="300" ></a>
+   <a href="url"><img src="screen_shots/app_screens.gif" align="center" height="600" width="300" ></a>
 </div>
 
 
